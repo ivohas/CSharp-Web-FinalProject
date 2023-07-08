@@ -10,3 +10,15 @@ C:\Users\ASUS\Desktop\Final Project\FinalCourseProject\BookFindingAndRatingSyste
 C:\Users\ASUS\Desktop\Final Project\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\refint\BookFindingAndRatingSystem.Common.dll
 C:\Users\ASUS\Desktop\Final Project\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.pdb
 C:\Users\ASUS\Desktop\Final Project\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\ref\BookFindingAndRatingSystem.Common.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\bin\Debug\net6.0\BookFindingAndRatingSystem.Common.deps.json
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\bin\Debug\net6.0\BookFindingAndRatingSystem.Common.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\bin\Debug\net6.0\BookFindingAndRatingSystem.Common.pdb
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\refint\BookFindingAndRatingSystem.Common.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\BookFindingAndRatingSystem.Common.pdb
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Common\obj\Debug\net6.0\ref\BookFindingAndRatingSystem.Common.dll
