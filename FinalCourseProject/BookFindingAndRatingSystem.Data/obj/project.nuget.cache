@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9/uUZuv/Wx67qvSfm0G43W5h2CH3KDiex0xmfr98znH3ZIk5/+eBr0bvoSZCOCZe3NayaJdT7zO2cCJHYlRxaQ==",
+  "dgSpecHash": "h9Qfi8b+UyKe27JSujpX++RjFTiTaRnKqdrBrKJBMQqjHXe69JaHpg8iO52HZVybAuZsRjjx3r2awzrCBzY5jA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.6\\microsoft.aspnetcore.cryptography.internal.6.0.6.nupkg.sha512",

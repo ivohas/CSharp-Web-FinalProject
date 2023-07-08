@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj",
         "projectName": "BookFindingAndRatingSystem.Common",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
