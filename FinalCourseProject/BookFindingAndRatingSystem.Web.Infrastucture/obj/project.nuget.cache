@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7g2HpQNnSlcY88dr7IK0Wb98qTC2a9AeuRE0LmxH6LVUXHagycE3pYj69t8z4chHgoHfaDfeujDWvQrCDPVSew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
