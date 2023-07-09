@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BookFindingAndRatingSystem.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "BookFindingAndRatingSystem.Common": "1.0.0"
+        },
+        "runtime": {
+          "BookFindingAndRatingSystem.Web.ViewModels.dll": {}
+        }
+      },
+      "BookFindingAndRatingSystem.Common/1.0.0": {
+        "runtime": {
+          "BookFindingAndRatingSystem.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BookFindingAndRatingSystem.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookFindingAndRatingSystem.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
