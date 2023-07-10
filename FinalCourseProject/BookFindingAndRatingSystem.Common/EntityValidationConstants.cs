@@ -50,5 +50,14 @@
             public const int PublisherNameMaxLenght = 80;
             public const int PublisherNameMinLenght = 3;
         }
+
+        public static class AutorConst
+        {
+            public const int FirstNameMaxLength = 30;
+            public const int FirstNameMinLength = 3;
+
+            public const int LastNameMaxLength = 30;
+            public const int LastNameMinLength = 3;            
+        }
     }
 }
