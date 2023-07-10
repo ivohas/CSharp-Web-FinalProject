@@ -30,8 +30,9 @@ namespace BookFindingAndRatingSystem.Data.Models
         public int PublishersId { get; set; }
         [ForeignKey(nameof(PublishersId))]
         public Publisher Publisher { get; set; } = null!;
-        //public int AutorId { get; set; }
-       // public Autor Autor { get; set; }
+
+        public int AutorId { get; set; }
+        public Autor Autor { get; set; }
 
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
