@@ -17,6 +17,7 @@ namespace BookFindingAndRatingSystem.Web.Data
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Autor> Autors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,6 +27,7 @@ namespace BookFindingAndRatingSystem.Web.Data
             builder.ApplyConfiguration(new BookEntityConfiguraion());
             builder.ApplyConfiguration(new CategoryEntityConfiguration());
             builder.ApplyConfiguration(new PublisherEntityConfiguraion());
+            builder.ApplyConfiguration(new AutorEntityConfiguration());
             base.OnModelCreating(builder);
         }
     }
