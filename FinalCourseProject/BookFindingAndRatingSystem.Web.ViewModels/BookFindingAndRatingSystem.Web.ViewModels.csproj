@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookFindingAndRatingSystem.Common\BookFindingAndRatingSystem.Common.csproj" />
+    <ProjectReference Include="..\BookFindingAndRatingSystem.Data.Models\BookFindingAndRatingSystem.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

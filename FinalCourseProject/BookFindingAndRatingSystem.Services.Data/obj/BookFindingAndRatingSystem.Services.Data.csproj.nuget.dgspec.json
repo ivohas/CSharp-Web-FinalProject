@@ -312,6 +312,9 @@
             "projectReferences": {
               "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {
                 "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj"
+              },
+              "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data.Models\\BookFindingAndRatingSystem.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data.Models\\BookFindingAndRatingSystem.Data.Models.csproj"
               }
             }
           }

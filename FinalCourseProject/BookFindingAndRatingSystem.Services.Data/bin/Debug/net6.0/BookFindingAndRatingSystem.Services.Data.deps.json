@@ -543,7 +543,8 @@
       },
       "BookFindingAndRatingSystem.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "BookFindingAndRatingSystem.Common": "1.0.0"
+          "BookFindingAndRatingSystem.Common": "1.0.0",
+          "BookFindingAndRatingSystem.Data.Models": "1.0.0"
         },
         "runtime": {
           "BookFindingAndRatingSystem.Web.ViewModels.dll": {}

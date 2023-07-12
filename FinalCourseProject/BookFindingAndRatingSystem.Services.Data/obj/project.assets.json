@@ -704,7 +704,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BookFindingAndRatingSystem.Common": "1.0.0"
+          "BookFindingAndRatingSystem.Common": "1.0.0",
+          "BookFindingAndRatingSystem.Data.Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BookFindingAndRatingSystem.Web.ViewModels.dll": {}
