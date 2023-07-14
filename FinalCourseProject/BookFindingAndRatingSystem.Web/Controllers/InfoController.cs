@@ -7,7 +7,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
     {
         public IActionResult About()
         {
-            throw new NotImplementedException();
+            return View();
         }
     }
 }
