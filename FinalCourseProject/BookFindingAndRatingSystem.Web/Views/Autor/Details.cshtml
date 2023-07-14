@@ -1,11 +1,44 @@
-﻿@using BookFindingAndRatingSystem.Web.ViewModels.Autor
-@model AllAutorViewModel
+﻿@model AllAutorViewModel
 
-<div>
-    <div>
-        <h1>@Model.FirstName @Model.LastName</h1>
-        <h1>@Model.BirthDate</h1>
+@{
+    ViewBag.Title = "Author Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="card-img-top" style="width: 20rem;" src="@Model.ImageUrl" alt="Author Image">
+        </div>
+        <div class="card col-md-8 border-0">
+            <h1>@Model.FirstName @Model.LastName</h1>
+            <p>Birth Date: @Model.BirthDate.ToString("dd.MM.yyyy")</p>
+            @if (Model.BirthDate != null)
+            {
+                
+                int age = CalculateAge(@Model.BirthDate);
+                <p>Age: @age</p>
+            }
+            <h3>Books:</h3>
+           <a class="btn btn-primary" asp-controller="Book" aspaction="AutorsBook"
+               asp-route-id="@Model.Id">Books writen by @Model.FirstName @Model.LastName</a>
+        </div>
     </div>
-    <img src="@Model.ImageUrl" alt="Author Image" />
 </div>
 
+@functions {
+    private int CalculateAge(DateTime birthDate)
+    {
+        var today = DateTime.Today;
+        int age = today.Year - birthDate.Year;
+
+        if (birthDate > today.AddYears(-age))
+        {
+            age--;
+        }
+
+        return age;
+    }
+}

@@ -63,7 +63,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     FirstName = a.FirstName,
                     LastName = a.LastName,
                     ImageUrl = a.ImageUrl,
-                    BirthDate = a.BirthDate.ToString()
+                    BirthDate = a.BirthDate
                 })
                 .FirstOrDefaultAsync(a => a.Id.ToString() == id);
                  

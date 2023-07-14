@@ -12,7 +12,7 @@ namespace BookFindingAndRatingSystem.Web.ViewModels.Autor
        
         public string ImageUrl { get; set; } = null!;
 
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public List<AllBookViewModel> Books { get; set; }
 
     }
