@@ -1,0 +1,93 @@
+﻿@model User
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <div class="profile">
+          <div class="profile-image"></div>
+          <h1 class="profile-name">@Model.Name</h1>
+          <p class="profile-description">@Model.Description</p>
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <div class="profile-stat">
+                <div class="profile-stat-label">Books Read</div>
+                <div class="profile-stat-value">@Model.BooksRead</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="profile-stat">
+                <div class="profile-stat-label">Followers</div>
+                <div class="profile-stat-value">@Model.Followers</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="profile-stat">
+                <div class="profile-stat-label">Following</div>
+                <div class="profile-stat-value">@Model.Following</div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <h5>Books Want to Read</h5>
+              <ul class="list-group">
+                @foreach (var book in Model.BooksWantToRead)
+                {
+                  <li class="list-group-item">@book</li>
+                }
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5>Preferred Genres</h5>
+              <ul class="list-group">
+                @foreach (var genre in Model.PreferredGenres)
+                {
+                  <li class="list-group-item">@genre</li>
+                }
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <h5>About You</h5>
+              <p class="profile-about">@Model.About</p>
+              <button class="btn btn-primary">Edit Your Profile</button>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <h5>Reading Challenge</h5>
+              <form>
+                <div class="form-group">
+                  <label for="reading-challenge">How many books do you want to read this year?</label>
+                  <input type="number" class="form-control" id="reading-challenge" placeholder="Enter a number">
+                </div>
+                <button type="submit" class="btn btn-success">Set Reading Challenge</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
