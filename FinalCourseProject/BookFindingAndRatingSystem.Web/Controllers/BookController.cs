@@ -22,5 +22,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(viewModel);
         }
+
+        public async Task<IActionResult> Details(Guid id)
+        {
+            DetailsBookViewModel bookViewModel = await bookService.GetBookByIdAsync(id.ToString());
+
+            if (bookViewModel != null)
+            {
+                return View(bookViewModel);
+            }
+
+            return NotFound();
+        }
     }
 }
