@@ -37,7 +37,7 @@ namespace BookFindingAndRatingSystem.Data.Models
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; } = null!;
-
-       
+        [Required]
+        public int SelledCopies { get; set; }
     }
 }

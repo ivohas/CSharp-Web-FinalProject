@@ -209,6 +209,9 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.Property<int>("PublishersId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SelledCopies")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -229,7 +232,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("84207d11-ea79-4182-b7a1-3f8e7dcff4db"),
+                            Id = new Guid("a36ffb34-25a6-4ee7-bf79-a30c78e64dd7"),
                             AutorId = 6,
                             CategoryId = 8,
                             Description = "A classic novel by Harper Lee",
@@ -237,11 +240,12 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)336,
                             Price = 12.99f,
                             PublishersId = 1,
+                            SelledCopies = 40000000,
                             Title = "To Kill a Mockingbird"
                         },
                         new
                         {
-                            Id = new Guid("a2419829-11fb-4c1d-802e-af5e002ca577"),
+                            Id = new Guid("d53c80fa-a689-4ef6-80cc-0706780939eb"),
                             AutorId = 1,
                             CategoryId = 8,
                             Description = "A dystopian novel by George Orwell",
@@ -249,11 +253,12 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)328,
                             Price = 9.99f,
                             PublishersId = 2,
+                            SelledCopies = 30000000,
                             Title = "1984"
                         },
                         new
                         {
-                            Id = new Guid("9ffb239e-184f-404b-917b-5204672f0242"),
+                            Id = new Guid("e26ebc7f-ce76-4756-852b-ad2a1628ce11"),
                             AutorId = 2,
                             CategoryId = 8,
                             Description = "A coming-of-age novel by J.D. Salinger",
@@ -261,11 +266,12 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)224,
                             Price = 8.99f,
                             PublishersId = 3,
+                            SelledCopies = 65000000,
                             Title = "The Catcher in the Rye"
                         },
                         new
                         {
-                            Id = new Guid("531b4a80-d8d4-4fca-b9dc-94aa42735d7c"),
+                            Id = new Guid("84250d36-853e-4b80-bdbf-88e9b36ab714"),
                             AutorId = 3,
                             CategoryId = 8,
                             Description = "A novel by F. Scott Fitzgerald",
@@ -273,11 +279,12 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)180,
                             Price = 7.99f,
                             PublishersId = 4,
+                            SelledCopies = 25000000,
                             Title = "The Great Gatsby"
                         },
                         new
                         {
-                            Id = new Guid("106a5bda-2514-4c3e-929a-aa655dee1e12"),
+                            Id = new Guid("a2cc9299-e2a8-488b-a394-fd4e7f7fe089"),
                             AutorId = 4,
                             CategoryId = 5,
                             Description = "A fantasy novel by J.R.R. Tolkien",
@@ -285,11 +292,12 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)304,
                             Price = 11.99f,
                             PublishersId = 5,
+                            SelledCopies = 100000000,
                             Title = "The Hobbit"
                         },
                         new
                         {
-                            Id = new Guid("ce12aa63-7289-4748-902d-2e513550718b"),
+                            Id = new Guid("08111c1a-12f4-4e5e-9831-879d3e9c2eb7"),
                             AutorId = 5,
                             CategoryId = 5,
                             Description = "The first book in the Harry Potter series by J.K. Rowling",
@@ -297,6 +305,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Pages = (short)332,
                             Price = 10.99f,
                             PublishersId = 6,
+                            SelledCopies = 120000000,
                             Title = "Harry Potter and the Philosopher's Stone"
                         });
                 });

@@ -34,5 +34,11 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return NotFound();
         }
+        public async Task<IActionResult> PopularBooks() 
+        {
+            IEnumerable<AllBookViewModel> popularBooks = await 
+                this.bookService.GetBooksByNumberOfSellsAsync();
+            return View(popularBooks);
+        }
     }
 }

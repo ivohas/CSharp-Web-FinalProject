@@ -18,6 +18,7 @@
             </p>
             <p>Category: <b>@Model.Category</b></p>
             <p>Publisher: <b>@Model.Publisher</b></p>
+            <p>Sold Copies: @Model.SelledCopies.ToString("#,##0")</p>
             <p>Description: @Model.Description</p>          
             @if (this.User.Identity.IsAuthenticated)
             {

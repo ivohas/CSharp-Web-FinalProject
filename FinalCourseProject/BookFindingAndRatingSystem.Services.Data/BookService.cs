@@ -51,11 +51,28 @@ namespace BookFindingAndRatingSystem.Services.Data
                     AutorName = $"{book.Autor.FirstName} {book.Autor.LastName}",
                     Category = book.Category.Name,
                     Publisher = book.Publisher.Name,
-                    AutorId = book.AutorId
+                    AutorId = book.AutorId,
+                    SelledCopies = book.SelledCopies
                 };
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<PopularBookViewModel>> GetBooksByNumberOfSellsAsync()
+        {
+            return await this.dbContext.Books
+                .Select(b => new PopularBookViewModel
+                {
+                    Id = b.Id.ToString(),
+                    Title = b.Title,
+                    Description = b.Description,
+                    Pages = b.Pages,
+                    Price = b.Price,
+                    ImageUrl = b.ImageUrl,            
+                    SelledCopies = b.SelledCopies
+                }).OrderByDescending(b => b.SelledCopies)
+                .ToArrayAsync();
         }
     }
 }
