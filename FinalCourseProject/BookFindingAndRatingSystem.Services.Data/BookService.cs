@@ -30,6 +30,19 @@ namespace BookFindingAndRatingSystem.Services.Data
             return books;
         }
 
+        public async Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId )
+        {
+            return await this.dbContext.Books
+                .Where(x => x.AutorId.ToString() == authorId)
+                .Select(b => new AllBookViewModel
+                {
+                    Id = b.Id.ToString(),
+                    ImageUrl = b.ImageUrl,
+                    Title = b.Title,
+                    Price = b.Price,
+                }).ToArrayAsync();
+        }
+
         public async Task<DetailsBookViewModel> GetBookByIdAsync(string bookId)
         {
 
@@ -74,5 +87,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 }).OrderByDescending(b => b.SelledCopies)
                 .ToArrayAsync();
         }
+
+       
     }
 }

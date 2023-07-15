@@ -40,5 +40,14 @@ namespace BookFindingAndRatingSystem.Web.Controllers
                 this.bookService.GetBooksByNumberOfSellsAsync();
             return View(popularBooks);
         }
+
+        public async Task<IActionResult> AutorsBook(int id)
+        {
+
+            IEnumerable<AllBookViewModel> autorsBooks = await
+                this.bookService.GetAllAutorsBookByIdAsync(id.ToString());
+
+            return View(autorsBooks);
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
 
         Task<DetailsBookViewModel> GetBookByIdAsync(string id);
         Task<IEnumerable<PopularBookViewModel>> GetBooksByNumberOfSellsAsync();
+
+        Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId);
     }
 }
