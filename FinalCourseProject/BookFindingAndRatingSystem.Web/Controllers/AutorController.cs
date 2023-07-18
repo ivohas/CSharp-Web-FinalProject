@@ -19,7 +19,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             IEnumerable<AllAutorViewModel> allAutors = await autorService.GetAllAutorsAsync();
             return View(allAutors);
         }
-        [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
            
