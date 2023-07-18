@@ -12,7 +12,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         public HomeController()
         {            
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -20,6 +20,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [HttpGet]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
