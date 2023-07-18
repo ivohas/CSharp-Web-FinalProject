@@ -8,6 +8,7 @@ namespace BookFindingAndRatingSystem.Data.Models
         public Book()
         {
             this.Id = Guid.NewGuid();
+            this.UsersBooks = new HashSet<IdentityUserBook>();
         }
         [Key]
         public Guid Id { get; set; }
@@ -39,5 +40,7 @@ namespace BookFindingAndRatingSystem.Data.Models
         public Category Category { get; set; } = null!;
         [Required]
         public int SelledCopies { get; set; }
+
+        public ICollection<IdentityUserBook> UsersBooks { get; set; }
     }
 }

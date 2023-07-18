@@ -19,10 +19,15 @@ namespace BookFindingAndRatingSystem.Web.Data
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Autor> Autors { get; set; }
 
+        public DbSet<IdentityUserBook> IdentityUserBooks { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             Assembly configAssembly= Assembly.GetAssembly(typeof(BooksDbContext)) ??
                 Assembly.GetExecutingAssembly();
+
+            builder.Entity<IdentityUserBook>()
+                .HasKey(x => new { x.BookId, x.UserId });
 
             builder.ApplyConfiguration(new BookEntityConfiguraion());
             builder.ApplyConfiguration(new CategoryEntityConfiguration());

@@ -10,5 +10,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task<IEnumerable<PopularBookViewModel>> GetBooksByNumberOfSellsAsync();
 
         Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId);
+        Task AddBookToUserByIdAsync(string? userId, DetailsBookViewModel book);
     }
 }

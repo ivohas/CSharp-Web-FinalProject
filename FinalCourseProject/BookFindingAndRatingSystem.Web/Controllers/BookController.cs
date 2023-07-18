@@ -49,5 +49,22 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(autorsBooks);
         }
+
+        public async Task<IActionResult> WantToRead(int id)
+        {
+            var book = await this.bookService.GetBookByIdAsync(id.ToString());
+
+            if (book == null)
+            {
+                return RedirectToAction(nameof(All));
+            }
+
+            var userId = this.GetUserId();
+
+            await this.bookService.AddBookToUserByIdAsync(userId, book);
+
+            return View(book);
+            // Add view 
+        }
     }
 }

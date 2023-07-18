@@ -13,6 +13,13 @@ namespace BookFindingAndRatingSystem.Services.Data
             this.dbContext = dbContext;
         }
 
+        public async Task AddBookToUserByIdAsync(string? userId, DetailsBookViewModel book)
+        {
+            //var alreadyInWishLis
+
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<AllBookViewModel>> AllBooksAsync()
         {
             var books = await this.dbContext
