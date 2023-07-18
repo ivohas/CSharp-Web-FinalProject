@@ -132,6 +132,16 @@ namespace BookFindingAndRatingSystem.Services.Data
                 .ToArrayAsync();
         }
 
+        public async Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook)
+        {
+            var userBook = await this.dbContext.IdentityUserBooks
+                .FirstOrDefaultAsync(ub => ub.UserId.ToString() == userId && ub.BookId.ToString() == myBook.Id);
 
+            if (userBook != null)
+            {
+                 this.dbContext.IdentityUserBooks.Remove(userBook);
+                await this.dbContext.SaveChangesAsync();
+            }
+        }
     }
 }

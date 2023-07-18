@@ -74,5 +74,19 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             IEnumerable<AllBookViewModel> myBooks = await this.bookService.GetAllBookByUserId(userId);
             return View(myBooks);
         }
+        public async Task<IActionResult> RemoveFromMine(string id)
+        {
+            var myBook = await this.bookService.GetBookByIdAsync(id.ToString());
+
+            if (myBook == null)
+            {
+                return RedirectToAction(nameof(Mine));
+            }
+
+            var userId = this.GetUserId();
+
+            await bookService.RemoveBookFromMyBooksAsync(userId, myBook);
+            return RedirectToAction(nameof(Mine));
+        }
     }
 }
