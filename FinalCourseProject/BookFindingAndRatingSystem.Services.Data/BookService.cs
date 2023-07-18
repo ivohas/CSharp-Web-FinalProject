@@ -1,4 +1,5 @@
-﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
+﻿using BookFindingAndRatingSystem.Data.Models;
+using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,30 @@ namespace BookFindingAndRatingSystem.Services.Data
 
         public async Task AddBookToUserByIdAsync(string? userId, DetailsBookViewModel book)
         {
-            //var alreadyInWishLis
+            var alreadyInWishList = await this.dbContext.IdentityUserBooks
+                .AnyAsync(ub => ub.UserId.ToString() == userId && ub.BookId.ToString() == book.Id);
 
-            await dbContext.SaveChangesAsync();
+            if (alreadyInWishList == false)
+            {
+                var userBook = new IdentityUserBook
+                {
+                    BookId = Guid.Parse(book.Id),
+                    UserId = Guid.Parse(userId)
+                };
+
+                try
+                {
+                    await this.dbContext.IdentityUserBooks.AddAsync(userBook);
+                    await dbContext.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("Something went wrong!");
+                }
+
+            }
+            // Already added
         }
 
         public async Task<IEnumerable<AllBookViewModel>> AllBooksAsync()
@@ -37,7 +59,7 @@ namespace BookFindingAndRatingSystem.Services.Data
             return books;
         }
 
-        public async Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId )
+        public async Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId)
         {
             return await this.dbContext.Books
                 .Where(x => x.AutorId.ToString() == authorId)
@@ -89,12 +111,12 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Description = b.Description,
                     Pages = b.Pages,
                     Price = b.Price,
-                    ImageUrl = b.ImageUrl,            
+                    ImageUrl = b.ImageUrl,
                     SelledCopies = b.SelledCopies
                 }).OrderByDescending(b => b.SelledCopies)
                 .ToArrayAsync();
         }
 
-       
+
     }
 }
