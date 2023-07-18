@@ -14,7 +14,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             this.bookService = bookService;
         }
-       
+        [HttpGet]
         public async Task<IActionResult> All()
         {
             IEnumerable<AllBookViewModel> viewModel =
@@ -22,7 +22,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(viewModel);
         }
-
+        [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
             DetailsBookViewModel bookViewModel = await bookService.GetBookByIdAsync(id.ToString());
@@ -34,13 +34,14 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return NotFound();
         }
+        [HttpGet]
         public async Task<IActionResult> PopularBooks() 
         {
             IEnumerable<AllBookViewModel> popularBooks = await 
                 this.bookService.GetBooksByNumberOfSellsAsync();
             return View(popularBooks);
         }
-
+        [HttpGet]
         public async Task<IActionResult> AutorsBook(int id)
         {
 
@@ -49,7 +50,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(autorsBooks);
         }
-
+        [HttpGet]
         public async Task<IActionResult> WantToRead(int id)
         {
             var book = await this.bookService.GetBookByIdAsync(id.ToString());

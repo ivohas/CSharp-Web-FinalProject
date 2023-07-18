@@ -5,6 +5,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 {
     public class InfoController : BaseController
     {
+        [HttpGet]
         public IActionResult About()
         {
             return View();
