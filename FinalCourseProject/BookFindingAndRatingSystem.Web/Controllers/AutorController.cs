@@ -1,9 +1,11 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Web.ViewModels.Autor;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
+    [Authorize]
     public class AutorController : Controller
     {
         private readonly IAutorService autorService;
