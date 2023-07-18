@@ -22,7 +22,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(viewModel);
         }
-        [HttpGet]
+
         public async Task<IActionResult> Details(Guid id)
         {
             DetailsBookViewModel bookViewModel = await bookService.GetBookByIdAsync(id.ToString());
@@ -50,8 +50,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(autorsBooks);
         }
-        [HttpGet]
-        public async Task<IActionResult> WantToRead(int id)
+
+        public async Task<IActionResult> WantToRead(string id)
         {
             var book = await this.bookService.GetBookByIdAsync(id.ToString());
 
@@ -61,11 +61,18 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
 
             var userId = this.GetUserId();
-
+            // try catch
             await this.bookService.AddBookToUserByIdAsync(userId, book);
 
-            return View(book);
-            // Add view 
+            return RedirectToAction(nameof(Mine));
+        }
+        [HttpGet]
+        public async Task<IActionResult> Mine()
+        {
+            var userId = this.GetUserId();
+
+            IEnumerable<AllBookViewModel> myBooks = await this.bookService.GetAllBookByUserId(userId);
+            return View(myBooks);
         }
     }
 }

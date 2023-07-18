@@ -68,8 +68,23 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Id = b.Id.ToString(),
                     ImageUrl = b.ImageUrl,
                     Title = b.Title,
-                    Price = b.Price,
+                    Price = b.Price
                 }).ToArrayAsync();
+        }
+
+        public async Task<IEnumerable<AllBookViewModel>> GetAllBookByUserId(string? userId)
+        {
+            IEnumerable<AllBookViewModel> myBooks = await this.dbContext.IdentityUserBooks
+                 .Where(ub => ub.UserId.ToString() == userId)
+                 .Select(b => new AllBookViewModel
+                 {
+                     Id = b.Book.Id.ToString(),
+                     ImageUrl = b.Book.ImageUrl,
+                     Title = b.Book.Title,
+                     Price = b.Book.Price,                     
+                 }).ToArrayAsync();
+
+            return myBooks;
         }
 
         public async Task<DetailsBookViewModel> GetBookByIdAsync(string bookId)

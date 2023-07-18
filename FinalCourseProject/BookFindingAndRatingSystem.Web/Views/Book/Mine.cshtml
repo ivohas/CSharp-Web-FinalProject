@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AllBookViewModel>
+@{
+    ViewBag.Title = "My Books";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var book in Model)
+    {
+        <div class="card col-4" style="width: 20rem;">
+            <img class="card-img-top" style="width: 18rem;" src="@book.ImageUrl" alt="Book Image">
+            <div class="card-body">
+                <h5 class="card-title mt-1">@book.Title</h5>
+            </div>
+
+
+            <style>
+                .rounded-btn {
+                    transition: background-color 0.3s ease;
+                    border-radius: 50px;
+                    padding: 10px 20px;
+                    color: white;
+                    text-decoration: none;
+                }
+
+                    .rounded-btn:hover {
+                        background-color: #343a40;
+                        color: white;
+                    }
+            </style>
+
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-success rounded-btn" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>
+                <a class="btn btn-danger rounded-btn" asp-controller="Book" asp-action="RemoveFromMine" asp-route-id="@book.Id">Remove</a>
+            </div>
+
+
+        </div>
+    }
+</div>
