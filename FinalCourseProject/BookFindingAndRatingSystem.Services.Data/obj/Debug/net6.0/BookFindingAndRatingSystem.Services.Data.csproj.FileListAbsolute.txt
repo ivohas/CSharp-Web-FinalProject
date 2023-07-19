@@ -40,3 +40,5 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Services.Data\obj\Debug\net6.0\refint\BookFindingAndRatingSystem.Services.Data.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Services.Data\obj\Debug\net6.0\BookFindingAndRatingSystem.Services.Data.pdb
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Services.Data\obj\Debug\net6.0\ref\BookFindingAndRatingSystem.Services.Data.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Services.Data\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Data.Models.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Services.Data\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Data.Models.pdb

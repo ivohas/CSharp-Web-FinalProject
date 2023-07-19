@@ -1,0 +1,17 @@
+﻿@model AllBookViewModel
+@{
+    var book = Model;
+}
+<div class="col">  
+        <div class="card col-4 mb-3" style="width: 18rem;">
+            <img class="card-img-top" style="height: 300px;" src="@book.ImageUrl" alt="Book Image">
+            <div class="card-body">
+                <h5 class="card-title mt-1">@book.Title</h5>
+                <h6>Price: @String.Format("{0:f2}", book.Price) EUR</h6>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-success rounded-btn" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>
+            </div>
+        </div>   
+</div>

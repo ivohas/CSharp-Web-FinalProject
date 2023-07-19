@@ -14,22 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title mt-1">@book.Title</h5>
             </div>
-
-
-            <style>
-                .rounded-btn {
-                    transition: background-color 0.3s ease;
-                    border-radius: 50px;
-                    padding: 10px 20px;
-                    color: white;
-                    text-decoration: none;
-                }
-
-                    .rounded-btn:hover {
-                        background-color: #343a40;
-                        color: white;
-                    }
-            </style>
+       
 
             <div class="d-flex justify-content-center">
                 <a class="btn btn-success rounded-btn" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>

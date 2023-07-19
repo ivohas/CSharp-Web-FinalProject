@@ -815,6 +815,7 @@
           "BookFindingAndRatingSystem.Common": "1.0.0",
           "BookFindingAndRatingSystem.Data": "1.0.0",
           "BookFindingAndRatingSystem.Data.Models": "1.0.0",
+          "BookFindingAndRatingSystem.Services.Data.Models": "1.0.0",
           "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0"
         },
         "compile": {
@@ -822,6 +823,19 @@
         },
         "runtime": {
           "bin/placeholder/BookFindingAndRatingSystem.Services.Data.dll": {}
+        }
+      },
+      "BookFindingAndRatingSystem.Services.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BookFindingAndRatingSystem.Services.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookFindingAndRatingSystem.Services.Data.Models.dll": {}
         }
       },
       "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
@@ -2361,6 +2375,11 @@
       "path": "../BookFindingAndRatingSystem.Services.Data/BookFindingAndRatingSystem.Services.Data.csproj",
       "msbuildProject": "../BookFindingAndRatingSystem.Services.Data/BookFindingAndRatingSystem.Services.Data.csproj"
     },
+    "BookFindingAndRatingSystem.Services.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../BookFindingAndRatingSystem.Services.Data.Models/BookFindingAndRatingSystem.Services.Data.Models.csproj",
+      "msbuildProject": "../BookFindingAndRatingSystem.Services.Data.Models/BookFindingAndRatingSystem.Services.Data.Models.csproj"
+    },
     "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
       "type": "project",
       "path": "../BookFindingAndRatingSystem.Web.Infrastucture/BookFindingAndRatingSystem.Web.Infrastucture.csproj",
@@ -2378,6 +2397,7 @@
       "BookFindingAndRatingSystem.Data >= 1.0.0",
       "BookFindingAndRatingSystem.Data.Models >= 1.0.0",
       "BookFindingAndRatingSystem.Services.Data >= 1.0.0",
+      "BookFindingAndRatingSystem.Services.Data.Models >= 1.0.0",
       "BookFindingAndRatingSystem.Web.Infrastucture >= 1.0.0",
       "BookFindingAndRatingSystem.Web.ViewModels >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.6",
@@ -2427,6 +2447,9 @@
             },
             "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj"
+            },
+            "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Data.Models\\BookFindingAndRatingSystem.Services.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Data.Models\\BookFindingAndRatingSystem.Services.Data.Models.csproj"
             },
             "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Data\\BookFindingAndRatingSystem.Services.Data.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Data\\BookFindingAndRatingSystem.Services.Data.csproj"

@@ -164,3 +164,5 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.pdb
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\ref\BookFindingAndRatingSystem.Web.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Data.Models.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Data.Models.pdb

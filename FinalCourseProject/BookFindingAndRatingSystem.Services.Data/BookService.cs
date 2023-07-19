@@ -1,7 +1,9 @@
 ﻿using BookFindingAndRatingSystem.Data.Models;
 using BookFindingAndRatingSystem.Services.Data.Interfaces;
+using BookFindingAndRatingSystem.Services.Data.Models.Book;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
+using BookFindingAndRatingSystem.Web.ViewModels.Book.Enum;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookFindingAndRatingSystem.Services.Data
@@ -40,6 +42,56 @@ namespace BookFindingAndRatingSystem.Services.Data
 
             }
             // Already added
+        }
+
+        public async Task<AllBookFilteredAndPagedSerivceModel> AllAsync(AllBookQueryModel queryModel)
+        {
+            IQueryable<Book> booksQuery = this.dbContext.Books.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(queryModel.Category))
+            {
+                booksQuery = booksQuery
+                    .Where(h => h.Category.Name == queryModel.Category);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+            {
+                string wildCard = $"%{queryModel.SearchString.ToLower()}%";
+                booksQuery = booksQuery.Where(b => EF.Functions.Like(b.Title, wildCard)
+                || EF.Functions.Like(b.Autor.FirstName, wildCard)
+                || EF.Functions.Like(b.Autor.LastName, wildCard));
+            }
+
+            booksQuery = queryModel.BookSorting switch
+            {
+                BookSorting.LowestPrice => booksQuery.OrderByDescending(b => b.Price),
+                BookSorting.TitleDescending => booksQuery.OrderByDescending(b => b.Title),
+                BookSorting.TitleAscending => booksQuery.OrderBy(b => b.Title),
+                BookSorting.HighestPrice => booksQuery.OrderBy(b => b.Price),
+                BookSorting.MostCopiesSold => booksQuery.OrderBy(b => b.Price),
+                _ => booksQuery
+            };
+            //Problem
+            IEnumerable<AllBookViewModel> allBooks = await booksQuery
+                .Skip((queryModel.CurrentPage - 1) * queryModel.BooksPerPage)
+                .Select(b => new AllBookViewModel
+                {
+                    Id = b.Id.ToString(),
+                    Title = b.Title,
+                    Description = b.Description,
+                    ImageUrl = b.ImageUrl,
+                    Pages = b.Pages,
+                    Price = b.Price
+                }).Take(queryModel.BooksPerPage)
+                .ToArrayAsync();
+
+            int totalBook = booksQuery.Count();
+
+            return new AllBookFilteredAndPagedSerivceModel()
+            {
+                TotalBooksCount = totalBook,
+                Books = allBooks
+            };
         }
 
         public async Task<IEnumerable<AllBookViewModel>> AllBooksAsync()
@@ -81,7 +133,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                      Id = b.Book.Id.ToString(),
                      ImageUrl = b.Book.ImageUrl,
                      Title = b.Book.Title,
-                     Price = b.Book.Price,                     
+                     Price = b.Book.Price,
                  }).ToArrayAsync();
 
             return myBooks;
@@ -139,7 +191,7 @@ namespace BookFindingAndRatingSystem.Services.Data
 
             if (userBook != null)
             {
-                 this.dbContext.IdentityUserBooks.Remove(userBook);
+                this.dbContext.IdentityUserBooks.Remove(userBook);
                 await this.dbContext.SaveChangesAsync();
             }
         }

@@ -12,6 +12,7 @@
           "BookFindingAndRatingSystem.Data": "1.0.0",
           "BookFindingAndRatingSystem.Data.Models": "1.0.0",
           "BookFindingAndRatingSystem.Services.Data": "1.0.0",
+          "BookFindingAndRatingSystem.Services.Data.Models": "1.0.0",
           "BookFindingAndRatingSystem.Web.Infrastucture": "1.0.0",
           "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.6",
@@ -567,10 +568,19 @@
           "BookFindingAndRatingSystem.Common": "1.0.0",
           "BookFindingAndRatingSystem.Data": "1.0.0",
           "BookFindingAndRatingSystem.Data.Models": "1.0.0",
+          "BookFindingAndRatingSystem.Services.Data.Models": "1.0.0",
           "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "BookFindingAndRatingSystem.Services.Data.dll": {}
+        }
+      },
+      "BookFindingAndRatingSystem.Services.Data.Models/1.0.0": {
+        "dependencies": {
+          "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "BookFindingAndRatingSystem.Services.Data.Models.dll": {}
         }
       },
       "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
@@ -978,6 +988,11 @@
       "sha512": ""
     },
     "BookFindingAndRatingSystem.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookFindingAndRatingSystem.Services.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

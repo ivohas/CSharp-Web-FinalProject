@@ -19,6 +19,7 @@
     <ProjectReference Include="..\BookFindingAndRatingSystem.Common\BookFindingAndRatingSystem.Common.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Data.Models\BookFindingAndRatingSystem.Data.Models.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Data\BookFindingAndRatingSystem.Data.csproj" />
+    <ProjectReference Include="..\BookFindingAndRatingSystem.Services.Data.Models\BookFindingAndRatingSystem.Services.Data.Models.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Services.Data\BookFindingAndRatingSystem.Services.Data.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Web.Infrastucture\BookFindingAndRatingSystem.Web.Infrastucture.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Web.ViewModels\BookFindingAndRatingSystem.Web.ViewModels.csproj" />

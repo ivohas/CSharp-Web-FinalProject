@@ -1,4 +1,5 @@
-﻿using BookFindingAndRatingSystem.Web.ViewModels.Book;
+﻿using BookFindingAndRatingSystem.Services.Data.Models.Book;
+using BookFindingAndRatingSystem.Web.ViewModels.Book;
 
 namespace BookFindingAndRatingSystem.Services.Data.Interfaces
 {
@@ -13,5 +14,7 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task AddBookToUserByIdAsync(string? userId, DetailsBookViewModel book);
         Task<IEnumerable<AllBookViewModel>> GetAllBookByUserId(string? userId);
         Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook);
+
+        Task<AllBookFilteredAndPagedSerivceModel> AllAsync(AllBookQueryModel queryModel);
     }
 }

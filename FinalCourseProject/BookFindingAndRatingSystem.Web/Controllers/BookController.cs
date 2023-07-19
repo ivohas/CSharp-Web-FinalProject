@@ -1,4 +1,5 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
+using BookFindingAndRatingSystem.Services.Data.Models.Book;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
@@ -10,9 +11,11 @@ namespace BookFindingAndRatingSystem.Web.Controllers
     public class BookController : BaseController
     {
         private readonly IBookService bookService;
-        public BookController(IBookService bookService)
+        private readonly ICategoryService categoryService;
+        public BookController(IBookService bookService, ICategoryService categoryService)
         {
             this.bookService = bookService;
+            this.categoryService = categoryService;
         }
         [HttpGet]
         public async Task<IActionResult> All()
@@ -87,6 +90,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             await bookService.RemoveBookFromMyBooksAsync(userId, myBook);
             return RedirectToAction(nameof(Mine));
+        }
+
+        public async Task<IActionResult> Search([FromQuery]AllBookQueryModel queryModel)
+        {
+            AllBookFilteredAndPagedSerivceModel serviceModel = await this.bookService.AllAsync(queryModel);
+
+            queryModel.Books = serviceModel.Books;
+            queryModel.BooksCount = serviceModel.TotalBooksCount;
+            queryModel.Categories = await this.categoryService.AllCategoriesNameAsync();
+
+            return View(queryModel);
         }
     }
 }
