@@ -64,11 +64,11 @@ namespace BookFindingAndRatingSystem.Services.Data
 
             booksQuery = queryModel.BookSorting switch
             {
-                BookSorting.LowestPrice => booksQuery.OrderByDescending(b => b.Price),
+                BookSorting.LowestPrice => booksQuery.OrderBy(b => b.Price),
                 BookSorting.TitleDescending => booksQuery.OrderByDescending(b => b.Title),
                 BookSorting.TitleAscending => booksQuery.OrderBy(b => b.Title),
-                BookSorting.HighestPrice => booksQuery.OrderBy(b => b.Price),
-                BookSorting.MostCopiesSold => booksQuery.OrderBy(b => b.Price),
+                BookSorting.HighestPrice => booksQuery.OrderByDescending(b => b.Price),
+                BookSorting.MostCopiesSold => booksQuery.OrderByDescending(b => b.Price),
                 _ => booksQuery
             };
             //Problem
