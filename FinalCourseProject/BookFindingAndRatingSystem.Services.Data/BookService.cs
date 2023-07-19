@@ -68,7 +68,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 BookSorting.TitleDescending => booksQuery.OrderByDescending(b => b.Title),
                 BookSorting.TitleAscending => booksQuery.OrderBy(b => b.Title),
                 BookSorting.HighestPrice => booksQuery.OrderByDescending(b => b.Price),
-                BookSorting.MostCopiesSold => booksQuery.OrderByDescending(b => b.Price),
+                BookSorting.MostCopiesSold => booksQuery.OrderByDescending(b => b.SelledCopies),
                 _ => booksQuery
             };
             //Problem

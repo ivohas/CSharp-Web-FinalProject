@@ -18,10 +18,11 @@ namespace BookFindingAndRatingSystem.Web.ViewModels.Book
         public string? SearchString { get; set; }
         [Display(Name = "Sort books by")]
         public BookSorting BookSorting { get; set; }
+       
         public int CurrentPage { get; set; }
 
         public int BooksCount { get; set; }
-
+        [Display(Name = "Books per page")]
         public int BooksPerPage { get; set; }
 
         public IEnumerable<string> Categories { get; set; }
