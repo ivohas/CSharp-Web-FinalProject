@@ -102,5 +102,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(queryModel);
         }
+        
+        public Task<IActionResult> Edit(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

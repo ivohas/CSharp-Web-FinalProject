@@ -26,7 +26,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 var userBook = new IdentityUserBook
                 {
                     BookId = Guid.Parse(book.Id),
-                    UserId = Guid.Parse(userId)
+                    UserId = Guid.Parse(userId!)
                 };
 
                 try
