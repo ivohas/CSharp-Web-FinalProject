@@ -1,7 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<AllBookViewModel>
+@{
+    ViewData["Title"] = "Book Finding and Rating System";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>    
+<div class="container">
+    <!-- Welcome Section -->
+    <div class="row mt-4">
+        <div class="col">
+            <h1>Welcome to @ViewData["Title"]</h1>
+            <p>Discover the joy of reading and explore a world of knowledge.</p>
+        </div>
+    </div>
+
+    <!-- Photo and Books Section -->
+    <div class="row mt-4">
+        <div class="col-md-7">
+            <!-- Replace the URL with the actual URL where you store the index.svg -->
+            <img src="/index.svg" alt="Book Cart Illustration" class="img-fluid">
+        </div>
+        <div class="col-md-5">
+            <h3>Popular books:</h3>
+            <div class="row mb-3">
+                @foreach (var book in Model)
+                {
+                    <div class="col">
+                        <div class="card">
+                           <img src="@book.ImageUrl" class="card-img-top" style="max-height: 18rem;" alt="Book Cover">
+                            <div class="card-body">
+                                <h5 class="card-title">@book.Title</h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row mt-3">
+                <div class="col text-right">
+                    <a href="/book" class="btn btn-primary btn-lg">See Other Popular Books</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
