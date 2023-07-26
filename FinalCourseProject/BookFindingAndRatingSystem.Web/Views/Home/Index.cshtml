@@ -25,17 +25,20 @@
                 {
                     <div class="col">
                         <div class="card">
-                           <img src="@book.ImageUrl" class="card-img-top" style="max-height: 18rem;" alt="Book Cover">
+                            <img src="@book.ImageUrl" class="card-img-top" style="max-height: 18rem;" alt="Book Cover">
                             <div class="card-body">
                                 <h5 class="card-title">@book.Title</h5>
                             </div>
+                            <form class="input-group-sm" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">
+                                <input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
+                            </form>
                         </div>
                     </div>
                 }
             </div>
             <div class="row mt-3">
                 <div class="col text-right">
-                    <a href="/book" class="btn btn-primary btn-lg">See Other Popular Books</a>
+                    <a href="/Book/PopularBooks" class="btn btn-primary btn-lg">See Other Popular Books</a>
                 </div>
             </div>
         </div>
