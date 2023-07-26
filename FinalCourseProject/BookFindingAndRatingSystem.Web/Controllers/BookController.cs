@@ -105,6 +105,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         
         public Task<IActionResult> Edit(string id)
         {
+            var book = this.bookService.GetBookByIdAsync(id);
             throw new NotImplementedException();
         }
     }
