@@ -185,7 +185,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(queryModel);
         }
-
+        // not ready
         public async Task<IActionResult> Edit(string id)
         {
             DetailsBookViewModel book;
@@ -198,6 +198,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
                 return this.BadRequest();
             }
 
+            throw new NotImplementedException();
+        }
+        public IActionResult Rate(string id)
+        {
             throw new NotImplementedException();
         }
     }
