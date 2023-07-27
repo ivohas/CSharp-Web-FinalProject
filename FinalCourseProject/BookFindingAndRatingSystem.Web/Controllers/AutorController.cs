@@ -16,14 +16,31 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            IEnumerable<AllAutorViewModel> allAutors = await autorService.GetAllAutorsAsync();
-            return View(allAutors);
+            IEnumerable<AllAutorViewModel> allAuthors;
+            try
+            {
+                allAuthors = await autorService.GetAllAutorsAsync();
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("Something went wrong try again later!");
+            }
+
+            return View(allAuthors);
         }
         public async Task<IActionResult> Details(string id)
         {
-           
-            AllAutorViewModel autor = await this.autorService.GetAutorByIdAsync(id);
-            return View(autor);
+            AllAutorViewModel? author;
+            try
+            {
+                author = await this.autorService.GetAutorByIdAsync(id);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("We could not find author with this id, please try again later!");
+            }
+
+            return View(author);
         }
     }
 }

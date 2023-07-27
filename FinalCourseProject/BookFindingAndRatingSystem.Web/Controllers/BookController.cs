@@ -20,52 +20,96 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            IEnumerable<AllBookViewModel> viewModel =
-                await this.bookService.AllBooksAsync();
+            IEnumerable<AllBookViewModel> allBooks;
+            try
+            {
+                allBooks = await this.bookService.AllBooksAsync();
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("The books can not be loaded, please try again later!");
+            }
 
-            return View(viewModel);
+            return View(allBooks);
         }
 
         public async Task<IActionResult> Details(Guid id)
         {
-            DetailsBookViewModel bookViewModel = await bookService.GetBookByIdAsync(id.ToString());
-
-            if (bookViewModel != null)
+            DetailsBookViewModel book;
+            try
             {
-                return View(bookViewModel);
+                book = await bookService.GetBookByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("There is no book with this id, please try again later!");
+            }
+
+            if (book != null)
+            {
+                return View(book);
             }
 
             return NotFound();
         }
         [HttpGet]
-        public async Task<IActionResult> PopularBooks() 
+        public async Task<IActionResult> PopularBooks()
         {
-            IEnumerable<AllBookViewModel> popularBooks = await 
-                this.bookService.GetBooksByNumberOfSellsAsync();
+            IEnumerable<AllBookViewModel> popularBooks;
+            try
+            {
+                popularBooks = await this.bookService.GetBooksByNumberOfSellsAsync();
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("Problem ocured, try again later!");
+            }
+
             return View(popularBooks);
         }
         [HttpGet]
         public async Task<IActionResult> AutorsBook(int id)
         {
+            IEnumerable<AllBookViewModel> authorsBooks;
 
-            IEnumerable<AllBookViewModel> autorsBooks = await
-                this.bookService.GetAllAutorsBookByIdAsync(id.ToString());
-
-            return View(autorsBooks);
+            try
+            {
+                authorsBooks = await this.bookService.GetAllAutorsBookByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("Error ocurred!");
+            }
+            return View(authorsBooks);
         }
 
         public async Task<IActionResult> WantToRead(string id)
         {
-            var book = await this.bookService.GetBookByIdAsync(id.ToString());
+            DetailsBookViewModel book;
+            try
+            {
+                book = await this.bookService.GetBookByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("No book by id");
+            }
+
 
             if (book == null)
             {
-                return RedirectToAction(nameof(All));
+                return NotFound();
             }
 
             var userId = this.GetUserId();
-            // try catch
-            await this.bookService.AddBookToUserByIdAsync(userId, book);
+            try
+            {
+                await this.bookService.AddBookToUserByIdAsync(userId, book);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
 
             return RedirectToAction(nameof(Mine));
         }
@@ -73,13 +117,29 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         public async Task<IActionResult> Mine()
         {
             var userId = this.GetUserId();
+            IEnumerable<AllBookViewModel> myBooks;
+            try
+            {
+                myBooks = await this.bookService.GetAllBookByUserId(userId);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
 
-            IEnumerable<AllBookViewModel> myBooks = await this.bookService.GetAllBookByUserId(userId);
             return View(myBooks);
         }
         public async Task<IActionResult> RemoveFromMine(string id)
         {
-            var myBook = await this.bookService.GetBookByIdAsync(id.ToString());
+            DetailsBookViewModel myBook;
+            try
+            {
+                myBook = await this.bookService.GetBookByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
 
             if (myBook == null)
             {
@@ -87,25 +147,57 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
 
             var userId = this.GetUserId();
+            try
+            {
+                await bookService.RemoveBookFromMyBooksAsync(userId, myBook);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
 
-            await bookService.RemoveBookFromMyBooksAsync(userId, myBook);
             return RedirectToAction(nameof(Mine));
         }
 
-        public async Task<IActionResult> Search([FromQuery]AllBookQueryModel queryModel)
+        public async Task<IActionResult> Search([FromQuery] AllBookQueryModel queryModel)
         {
-            AllBookFilteredAndPagedSerivceModel serviceModel = await this.bookService.AllAsync(queryModel);
+            AllBookFilteredAndPagedSerivceModel serviceModel;
+            try
+            {
+                serviceModel = await this.bookService.AllAsync(queryModel);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
+
 
             queryModel.Books = serviceModel.Books;
             queryModel.BooksCount = serviceModel.TotalBooksCount;
-            queryModel.Categories = await this.categoryService.AllCategoriesNameAsync();
+            try
+            {
+                queryModel.Categories = await this.categoryService.AllCategoriesNameAsync();
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
 
             return View(queryModel);
         }
-        
-        public Task<IActionResult> Edit(string id)
+
+        public async Task<IActionResult> Edit(string id)
         {
-            var book = this.bookService.GetBookByIdAsync(id);
+            DetailsBookViewModel book;
+            try
+            {
+                book = await this.bookService.GetBookByIdAsync(id);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
+
             throw new NotImplementedException();
         }
     }
