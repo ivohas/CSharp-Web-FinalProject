@@ -12,3 +12,4 @@ There is 3 error page for the different types of errors, and there is error hand
 There will be added securety so it can be prevented attacks and security vulnerabilities like SQL Injection, XSS, CSRF, parameter tampering, AutoForgeryToken, etc.
 May be added Web Api with AJAX request so the users can see how many people find books the want and how many books will be read, because of this site.
 In the database is made though scafolding it in Microsoft SQL, there is entity for user, book, author, publisher, category and maping one between the user and book, wiil be added more.
+Even for the admin there is data validation.
