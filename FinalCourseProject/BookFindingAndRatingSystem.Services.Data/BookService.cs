@@ -111,6 +111,22 @@ namespace BookFindingAndRatingSystem.Services.Data
             return books;
         }
 
+        public async Task EditBookAsync(EditBookViewModel book)
+        {
+            var bookToChange = await this.dbContext.Books.Where(b => b.Id.ToString() == book.Id).FirstOrDefaultAsync();
+           
+            if (bookToChange != null)
+            {
+
+                bookToChange.Title = book.Title;
+                bookToChange.Price = book.Price;
+                bookToChange.Description = book.Description;
+                bookToChange.SelledCopies = book.SoldCopies;
+                bookToChange.ImageUrl =book.ImageUrl;
+                await this.dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<AllBookViewModel>> GetAllAutorsBookByIdAsync(string authorId)
         {
             return await this.dbContext.Books
@@ -165,6 +181,30 @@ namespace BookFindingAndRatingSystem.Services.Data
                 };
             }
 
+            return null;
+        }
+
+        public async Task<EditBookViewModel> GetBookForEditByIdAsync(string id)
+        {
+
+            var book = await dbContext.Books
+                .Include(b => b.Autor)
+                .FirstOrDefaultAsync(b => b.Id.ToString() == id);
+
+            if (book != null)
+            {
+                return new EditBookViewModel
+                {
+                    Id = book.Id.ToString(),
+                    Title = book.Title,
+                    Description = book.Description,
+                    Pages = book.Pages,
+                    Price = book.Price,
+                    ImageUrl = book.ImageUrl,                   
+                    AutorId = book.AutorId,
+                    SoldCopies = book.SelledCopies
+                };
+            }
             return null;
         }
 

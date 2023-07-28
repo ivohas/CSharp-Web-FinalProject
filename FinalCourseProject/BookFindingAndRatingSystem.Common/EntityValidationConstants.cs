@@ -15,6 +15,9 @@
 
             public const float BookPriceMin = 1;
             public const float BookPriceMax = 30_800_000;
+
+            public const int MinSoldCopies = 1;
+            public const int MaxSoldCopies = 300_000_000;
             // Eventually add 0.0 to 10.0 for raiting
         }
         public static class UserConst 
@@ -51,13 +54,16 @@
             public const int PublisherNameMinLenght = 3;
         }
 
-        public static class AutorConst
+        public static class AuthorConst
         {
             public const int FirstNameMaxLength = 30;
             public const int FirstNameMinLength = 3;
 
             public const int LastNameMaxLength = 30;
-            public const int LastNameMinLength = 3;            
+            public const int LastNameMinLength = 3;
+
+            public const int NameMaxLenght = 60;
+            public const int NameMinLenght = 6;
         }
     }
 }

@@ -16,5 +16,7 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook);
 
         Task<AllBookFilteredAndPagedSerivceModel> AllAsync(AllBookQueryModel queryModel);
+        Task EditBookAsync(EditBookViewModel book);
+        Task<EditBookViewModel> GetBookForEditByIdAsync(string id);
     }
 }

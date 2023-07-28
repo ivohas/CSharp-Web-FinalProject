@@ -185,20 +185,34 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(queryModel);
         }
-        // not ready
+        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
-            DetailsBookViewModel book;
+            EditBookViewModel book;
             try
             {
-                book = await this.bookService.GetBookByIdAsync(id);
+                book = await this.bookService.GetBookForEditByIdAsync(id);
             }
             catch (Exception)
             {
                 return this.BadRequest();
             }
 
-            throw new NotImplementedException();
+            if (book == null)
+            {
+                return RedirectToAction($"Details({Guid.Parse(id)})");
+            }            
+            return View(book);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditBookViewModel book) 
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
+            await this.bookService.EditBookAsync(book);
+            return RedirectToAction(nameof(All));
         }
         public IActionResult Rate(string id)
         {

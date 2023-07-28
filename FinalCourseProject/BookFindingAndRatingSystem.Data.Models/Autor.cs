@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using static BookFindingAndRatingSystem.Common.EntityValidationConstants.AutorConst;
+using static BookFindingAndRatingSystem.Common.EntityValidationConstants.AuthorConst;
 namespace BookFindingAndRatingSystem.Data.Models
 {
     public class Autor
