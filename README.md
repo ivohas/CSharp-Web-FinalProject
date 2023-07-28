@@ -8,7 +8,7 @@ Most of teh views are responsive, as for the image in the Home page is SVG
 For now images are saved in SSMS and wwwroot, but most likely be used some file storege clould
 May be added Discusion chat with SingleR of users to comunicate between themselves.
 Most likely the application will be hosted and link will be provided it the top of the ReadMe 
-There is 3 errro page for the different types of errors, and there is error handing in the controllers just in case something goes wrong.
+There is 3 error page for the different types of errors, and there is error handing in the controllers just in case something goes wrong.
 There will be added securety so it can be prevented attacks and security vulnerabilities like SQL Injection, XSS, CSRF, parameter tampering, AutoForgeryToken, etc.
 May be added Web Api with AJAX request so the users can see how many people find books the want and how many books will be read, because of this site.
 In the database is made though scafolding it in Microsoft SQL, there is entity for user, book, author, publisher, category and maping one between the user and book, wiil be added more.
