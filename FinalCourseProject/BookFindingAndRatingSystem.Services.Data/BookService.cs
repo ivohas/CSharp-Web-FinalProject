@@ -114,7 +114,7 @@ namespace BookFindingAndRatingSystem.Services.Data
         public async Task EditBookAsync(EditBookViewModel book)
         {
             var bookToChange = await this.dbContext.Books.Where(b => b.Id.ToString() == book.Id).FirstOrDefaultAsync();
-           
+
             if (bookToChange != null)
             {
 
@@ -122,7 +122,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 bookToChange.Price = book.Price;
                 bookToChange.Description = book.Description;
                 bookToChange.SelledCopies = book.SoldCopies;
-                bookToChange.ImageUrl =book.ImageUrl;
+                bookToChange.ImageUrl = book.ImageUrl;
                 await this.dbContext.SaveChangesAsync();
             }
         }
@@ -155,7 +155,7 @@ namespace BookFindingAndRatingSystem.Services.Data
             return myBooks;
         }
 
-        public async Task<DetailsBookViewModel> GetBookByIdAsync(string bookId)
+        public async Task<DetailsBookViewModel> GetBookByIdAsync(string bookId, string userId)
         {
 
             var book = await dbContext.Books
@@ -177,7 +177,8 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Category = book.Category.Name,
                     Publisher = book.Publisher.Name,
                     AutorId = book.AutorId,
-                    SelledCopies = book.SelledCopies
+                    SelledCopies = book.SelledCopies,
+                    AlreadyAddedByThisUser = await this.dbContext.IdentityUserBooks.Where(ub => ub.UserId.ToString() == userId && ub.BookId.ToString() == bookId).AnyAsync()
                 };
             }
 
@@ -200,7 +201,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Description = book.Description,
                     Pages = book.Pages,
                     Price = book.Price,
-                    ImageUrl = book.ImageUrl,                   
+                    ImageUrl = book.ImageUrl,
                     AutorId = book.AutorId,
                     SoldCopies = book.SelledCopies
                 };

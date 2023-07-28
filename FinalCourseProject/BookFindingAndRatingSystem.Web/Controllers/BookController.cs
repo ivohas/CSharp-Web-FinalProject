@@ -38,7 +38,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             DetailsBookViewModel book;
             try
             {
-                book = await bookService.GetBookByIdAsync(id.ToString());
+                var userId = GetUserId();
+                book = await bookService.GetBookByIdAsync(id.ToString(),userId);
             }
             catch (Exception)
             {
@@ -47,6 +48,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             if (book != null)
             {
+                
                 return View(book);
             }
 
@@ -88,7 +90,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             DetailsBookViewModel book;
             try
             {
-                book = await this.bookService.GetBookByIdAsync(id.ToString());
+                book = await this.bookService.GetBookByIdAsync(id.ToString(),this.GetUserId());
             }
             catch (Exception)
             {
@@ -134,7 +136,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             DetailsBookViewModel myBook;
             try
             {
-                myBook = await this.bookService.GetBookByIdAsync(id.ToString());
+                myBook = await this.bookService.GetBookByIdAsync(id.ToString(),this.GetUserId());
             }
             catch (Exception)
             {
@@ -211,8 +213,16 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             {
                 return BadRequest("Invalid data!");
             }
-            await this.bookService.EditBookAsync(book);
-            return RedirectToAction(nameof(All));
+            try
+            {
+                await this.bookService.EditBookAsync(book);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("The book can't be edited");
+            }
+
+            return RedirectToAction("Details", new { id = $"{book.Id}" });
         }
         public IActionResult Rate(string id)
         {

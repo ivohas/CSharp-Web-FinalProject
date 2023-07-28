@@ -23,8 +23,16 @@
             @if (this.User.Identity.IsAuthenticated)
             {
                 <a href="@Url.Action("Rate","Book", new {id=Model.Id})" class="btn btn-primary">Rate it</a>
-                <a class="btn" style="color: #fff; background-color: #c79b6d; border: 1px solid black;"
+                if (!Model.AlreadyAddedByThisUser)
+                {
+                    <a class="btn" style="color: #fff; background-color: #c79b6d; border: 1px solid black;"
                asp-controller="Book" asp-action="WantToRead" asp-route-id="@Model.Id">Want to read</a>
+                }
+                else
+                {
+                    <a class="btn btn-danger rounded-btn" asp-controller="Book" asp-action="RemoveFromMine" asp-route-id="@Model.Id">Remove</a>
+                }
+
             }
             @if (true)
             {
