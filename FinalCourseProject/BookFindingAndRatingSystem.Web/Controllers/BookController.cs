@@ -1,5 +1,4 @@
-﻿using BookFindingAndRatingSystem.Data.Models;
-using BookFindingAndRatingSystem.Services.Data.Interfaces;
+﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Services.Data.Models.Book;
 using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
@@ -236,7 +235,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             var model = new AddBookViewModel();
             return View(model);
         }
-
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Add(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
@@ -244,7 +244,15 @@ namespace BookFindingAndRatingSystem.Web.Controllers
                 ModelState.AddModelError("Model", "Invalid data");
                 return this.View(model);
             }
-            await this.bookService.CreateNewBookAsync(model);
+            try
+            {
+                await this.bookService.CreateNewBookAsync(model);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Couldn't save the new book");
+            }
+
 
             return RedirectToAction(nameof(All));
         }

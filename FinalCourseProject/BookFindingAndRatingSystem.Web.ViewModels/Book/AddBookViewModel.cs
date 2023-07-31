@@ -1,25 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using static BookFindingAndRatingSystem.Common.EntityValidationConstants.BookConst;
 namespace BookFindingAndRatingSystem.ViewModels
 {
     public class AddBookViewModel
     {
         [Required]
-        public string Title { get; set; }
+        [StringLength(BookTitleMaxLeght, MinimumLength = BookTitleMinLenght, ErrorMessage = "The title should be between 5 and 100 characters!")]
+        public string Title { get; set; } = null!;
 
         [Required]
-        public string Description { get; set; }
+        [StringLength(BookDescriptionMaxLenght, MinimumLength = BookDescriptionMinLenght, ErrorMessage = "Description should be between 50 and 1000 characters!")]
+        public string Description { get; set; } = null!;
 
         [Required]
-        [Range(1, short.MaxValue, ErrorMessage = "Please enter a valid page count.")]
+        [Range(BookMinPages, BookMaxPages, ErrorMessage = "Please enter a valid page count.")]
         public short Pages { get; set; }
 
         [Required]
         [Url(ErrorMessage = "Please enter a valid URL for the image.")]
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = null!;
 
         [Required]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a valid price.")]
+        [Range(BookPriceMin, BookPriceMax, ErrorMessage = "Please enter a valid price.")]
         public float Price { get; set; }
 
         [Display(Name = "Publisher")]
@@ -32,7 +34,7 @@ namespace BookFindingAndRatingSystem.ViewModels
         public int CategoryId { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid number.")]
-        public int SelledCopies { get; set; }
+        [Range(MinSoldCopies, MaxSoldCopies, ErrorMessage = "Please enter a valid number.")]
+        public int SoldCopies { get; set; }
     }
 }

@@ -10,7 +10,7 @@
             public const int BookDescriptionMaxLenght = 1_000;
             public const int BookDescriptionMinLenght = 50;
 
-            public const int BookMinPages = 20;
+            public const int BookMinPages = 1;
             public const int BookMaxPages = 2_000;
 
             public const float BookPriceMin = 1;
