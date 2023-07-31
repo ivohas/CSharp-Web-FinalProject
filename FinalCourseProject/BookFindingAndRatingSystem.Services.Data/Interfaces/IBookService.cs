@@ -1,4 +1,5 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Models.Book;
+using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 
 namespace BookFindingAndRatingSystem.Services.Data.Interfaces
@@ -18,5 +19,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task<AllBookFilteredAndPagedSerivceModel> AllAsync(AllBookQueryModel queryModel);
         Task EditBookAsync(EditBookViewModel book);
         Task<EditBookViewModel> GetBookForEditByIdAsync(string id);
+        Task CreateNewBookAsync(AddBookViewModel model);
     }
 }

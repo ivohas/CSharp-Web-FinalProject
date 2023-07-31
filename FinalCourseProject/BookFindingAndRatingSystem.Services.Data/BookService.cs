@@ -1,6 +1,7 @@
 ﻿using BookFindingAndRatingSystem.Data.Models;
 using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Services.Data.Models.Book;
+using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using BookFindingAndRatingSystem.Web.ViewModels.Book.Enum;
@@ -109,6 +110,25 @@ namespace BookFindingAndRatingSystem.Services.Data
                 }).ToArrayAsync();
 
             return books;
+        }
+
+        public async Task CreateNewBookAsync(AddBookViewModel model)
+        {
+            var book = new Book
+            {
+                Title = model.Title,
+                Description = model.Description,
+                Pages = model.Pages,
+                ImageUrl = model.ImageUrl,
+                Price = model.Price,
+                PublishersId = model.PublisherId,
+                AutorId = model.AuthorId,
+                CategoryId = model.CategoryId,
+                SelledCopies = model.SelledCopies
+            };
+
+            this.dbContext.Books.AddRange(book);
+            await this.dbContext.SaveChangesAsync();
         }
 
         public async Task EditBookAsync(EditBookViewModel book)
@@ -224,6 +244,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 }).OrderByDescending(b => b.SelledCopies)
                 .ToArrayAsync();
         }
+      
 
         public async Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook)
         {

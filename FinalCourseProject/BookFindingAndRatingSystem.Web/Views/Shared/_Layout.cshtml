@@ -24,12 +24,12 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item text-md-center">
                             <a asp-area="" asp-controller="Book" asp-action="All">
-                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                            <lord-icon src="https://cdn.lordicon.com/bhfjfgqz.json"
-                                       trigger="hover"
-                                       colors="primary:#FFFFFF"
-                                       style="width:35px;height:36px">
-                            </lord-icon>
+                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/bhfjfgqz.json"
+                                           trigger="hover"
+                                           colors="primary:#FFFFFF"
+                                           style="width:35px;height:36px">
+                                </lord-icon>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -52,10 +52,16 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Autor" asp-action="All">All Author</a>
                             </li>
+                            if (true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="Add">Add Book</a>
+                                </li>
+                            }
                         }
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Info" asp-action="About">About</a>
-                        </li>                        
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -73,7 +79,8 @@
             &copy; Book Finding And Rating System @ReleaseYear
             @if (DateTime.UtcNow.Year != ReleaseYear)
             {
-                @Html.Raw($" -{DateTime.UtcNow.Year}");
+                @Html.Raw($" -{DateTime.UtcNow.Year}")
+                ;
             }
         </div>
     </footer>
