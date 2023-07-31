@@ -28,7 +28,14 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("About")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BooksToRead")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -227,7 +234,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d0c88763-02af-4e4e-8e27-8e42afaca348"),
+                            Id = new Guid("a9d2fe05-591b-447e-8add-b3784f4b42fb"),
                             AutorId = 6,
                             CategoryId = 8,
                             Description = "A classic novel by Harper Lee",
@@ -240,7 +247,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f449ff24-b7d8-4035-9d4a-01991cd2d677"),
+                            Id = new Guid("488c22f4-35b3-467d-996d-450a6ccdc45a"),
                             AutorId = 1,
                             CategoryId = 8,
                             Description = "A dystopian novel by George Orwell",
@@ -253,7 +260,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2640fdd7-5096-4209-a7e1-e312eb102c40"),
+                            Id = new Guid("7d4b443b-bbe4-43b8-ba8b-5b4950cf4d7e"),
                             AutorId = 2,
                             CategoryId = 8,
                             Description = "A coming-of-age novel by J.D. Salinger",
@@ -266,7 +273,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dbcc38f6-57b2-4ccd-a2ec-ac5b9920829f"),
+                            Id = new Guid("79763574-b8f6-49b5-aa9b-f430cd995467"),
                             AutorId = 3,
                             CategoryId = 8,
                             Description = "A novel by F. Scott Fitzgerald",
@@ -279,7 +286,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9b49dc1a-3143-43af-8de4-b4ff8cd4b74b"),
+                            Id = new Guid("35881639-299a-4bfb-af47-a6e81cab80db"),
                             AutorId = 4,
                             CategoryId = 5,
                             Description = "A fantasy novel by J.R.R. Tolkien",
@@ -292,7 +299,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b2520697-283d-44f3-8cd2-cdf0dffa5bcc"),
+                            Id = new Guid("f603cdd3-bf3c-41a5-baa0-83022450cb32"),
                             AutorId = 5,
                             CategoryId = 5,
                             Description = "The first book in the Harry Potter series by J.K. Rowling",

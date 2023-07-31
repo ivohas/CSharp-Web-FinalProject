@@ -1,0 +1,21 @@
+﻿@using BookFindingAndRatingSystem.ViewModels
+@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Enter Something About Yourself:";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>@ViewData["Title"]</h2>
+            <form method="post" asp-controller="User" asp-action="EditAbout">
+                <div class="form-group">
+                    <label for="about">About You:</label>
+                    <textarea class="form-control" id="about" name="about" rows="5" required>@Model.About</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

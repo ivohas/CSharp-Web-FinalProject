@@ -40,7 +40,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             try
             {
                 var userId = GetUserId();
-                book = await bookService.GetBookByIdAsync(id.ToString(), userId);
+                book = await bookService.GetBookByIdAsync(id.ToString(), userId!);
             }
             catch (Exception)
             {
@@ -91,7 +91,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             DetailsBookViewModel book;
             try
             {
-                book = await this.bookService.GetBookByIdAsync(id.ToString(), this.GetUserId());
+                book = await this.bookService.GetBookByIdAsync(id.ToString(), this.GetUserId()!);
             }
             catch (Exception)
             {
@@ -137,7 +137,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             DetailsBookViewModel myBook;
             try
             {
-                myBook = await this.bookService.GetBookByIdAsync(id.ToString(), this.GetUserId());
+                myBook = await this.bookService.GetBookByIdAsync(id.ToString(), this.GetUserId()!);
             }
             catch (Exception)
             {

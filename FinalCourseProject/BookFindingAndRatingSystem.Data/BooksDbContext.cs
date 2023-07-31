@@ -19,6 +19,7 @@ namespace BookFindingAndRatingSystem.Web.Data
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Autor> Autors { get; set; }
 
+        public DbSet<AplicationUser> Users { get; set; }
         public DbSet<IdentityUserBook> IdentityUserBooks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

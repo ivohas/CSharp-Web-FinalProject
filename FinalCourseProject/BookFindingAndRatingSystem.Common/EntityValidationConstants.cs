@@ -31,6 +31,12 @@
 
             public const int UserEmailMaxLength = 100;
             public const int UserPasswordMaxLength = 50;
+
+            public const int MaxLengthAbout = 250;
+            public const int MinLengthAbout = 10;
+
+            public const int MinBooksToRead = 0;
+            public const int MaxBookToRead = 1000;
         }
 
         public static class ReviewsConst
