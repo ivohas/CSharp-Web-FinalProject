@@ -30,6 +30,20 @@ namespace BookFindingAndRatingSystem.Services.Data
             await dbContext.SaveChangesAsync();
         }
 
+        public async Task EditAuthorAsync(AuthorViewModel model)
+        {
+            var author = await this.dbContext.Autors.Where(b => b.Id == model.Id).FirstOrDefaultAsync();
+
+            if (author != null)
+            {
+                author.FirstName = model.FirstName;
+                author.LastName = model.LastName;
+                author.BirthDate = model.BirthDate;
+                author.ImageUrl = model.ImageUrl;
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<AllAutorViewModel>> GetAllAutorsAsync()
         {
             return await this.dbContext
@@ -57,7 +71,7 @@ namespace BookFindingAndRatingSystem.Services.Data
         {
             return await this.dbContext
                 .Books
-                .Where(b=> b.AutorId.ToString() == id)
+                .Where(b => b.AutorId.ToString() == id)
                 .Select(b => new AllBookViewModel
                 {
                     Title = b.Title,
@@ -65,7 +79,32 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Price = b.Price,
                 }).ToArrayAsync();
 
-                
+
+        }
+
+        public async Task<AuthorViewModel> GetAuthorForEditByIdAsync(int id)
+        {
+            AuthorViewModel? model = await this.dbContext
+               .Autors
+               .Where(a => a.Id == id)
+               .Select(a => new AuthorViewModel
+               {
+
+                   FirstName = a.FirstName,
+                   LastName = a.LastName,
+                   ImageUrl = a.ImageUrl,
+                   BirthDate = a.BirthDate
+               })
+               .AsQueryable()
+               .Take(1)
+               .FirstOrDefaultAsync();
+            if (model != null)
+            {
+                return model;
+            }
+            throw new Exception("Author not found");
+
+
         }
 
         public async Task<AllAutorViewModel?> GetAutorByIdAsync(string id)
@@ -81,7 +120,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     BirthDate = a.BirthDate
                 })
                 .FirstOrDefaultAsync(a => a.Id.ToString() == id);
-                 
+
         }
     }
 }

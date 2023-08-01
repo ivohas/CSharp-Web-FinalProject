@@ -4,6 +4,7 @@ namespace BookFindingAndRatingSystem.ViewModels
 {
     public class AuthorViewModel
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(FirstNameMaxLength, MinimumLength = FirstNameMinLength, ErrorMessage = "First Name is not right")]
         [Display(Name = "FirstName")]
@@ -21,7 +22,7 @@ namespace BookFindingAndRatingSystem.ViewModels
 
         [Required]
         [Display(Name = "BirthDate")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
     }
 }

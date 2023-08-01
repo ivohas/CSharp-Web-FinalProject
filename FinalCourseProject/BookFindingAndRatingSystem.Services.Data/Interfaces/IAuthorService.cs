@@ -12,5 +12,7 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
 
         Task<AllAutorViewModel?> GetAutorByIdAsync(string id);
         Task CreateNewAuthorAsync(AuthorViewModel model);
+        Task<AuthorViewModel> GetAuthorForEditByIdAsync(int id);
+        Task EditAuthorAsync(AuthorViewModel model);
     }
 }

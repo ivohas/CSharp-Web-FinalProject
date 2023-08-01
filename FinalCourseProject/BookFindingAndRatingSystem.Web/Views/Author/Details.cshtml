@@ -14,31 +14,15 @@
         </div>
         <div class="card col-md-8 border-0">
             <h1>@Model.FirstName @Model.LastName</h1>
-            <p>Birth Date: @Model.BirthDate.ToString("dd.MM.yyyy")</p>
-            @if (Model.BirthDate != null)
-            {
-                
-                int age = CalculateAge(@Model.BirthDate);
-                <p>Age: @age</p>
-            }
+            <p>Birth Date: @Model.BirthDate.ToString("dd.MM.yyyy")</p>         
             <h3>Books:</h3>
            <a class="btn btn-primary" asp-controller="Book" asp-action="AutorsBook"
                asp-route-id="@Model.Id">Books writen by @Model.FirstName @Model.LastName</a>
+            @if (true)
+            {
+                 <a class="btn btn-warning" asp-controller="Author" asp-action="Edit"
+               asp-route-id="@Model.Id">Edit</a>
+            }
         </div>
     </div>
 </div>
-
-@functions {
-    private int CalculateAge(DateTime birthDate)
-    {
-        var today = DateTime.Today;
-        int age = today.Year - birthDate.Year;
-
-        if (birthDate > today.AddYears(-age))
-        {
-            age--;
-        }
-
-        return age;
-    }
-}
