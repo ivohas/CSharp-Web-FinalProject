@@ -12,6 +12,6 @@ namespace BookFindingAndRatingSystem.Data.Models
         [MaxLength(MaxLengthAbout)]
         public string? About { get; set; }
         [Range(MinBooksToRead,MaxBookToRead)]
-        public int BooksToRead { get; set; }       
+        public int? ReadingChallenge { get; set; }
     }
 }

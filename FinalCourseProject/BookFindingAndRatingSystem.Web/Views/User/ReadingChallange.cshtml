@@ -1,0 +1,16 @@
+﻿@using BookFindingAndRatingSystem.ViewModels
+@model ProfileViewModel
+@{
+    ViewData["Title"] = "Reading Challenge";
+}
+<h1>
+    @ViewData["Title"]
+</h1>
+<form method="post" asp-controller="User" asp-action="ReadingChallange">
+    <div class="form-group">
+        <label for="reading-challenge">How many books do you want to read this year?</label>
+        <!-- Correct the name attribute to "ReadingChalenge" -->
+        <input type="number" class="form-control" id="Pages" name="ReadingChalenge" value="@Model.ReadingChalenge" required>    
+    </div>
+    <button type="submit" class="btn btn-success">Set Reading Challenge</button>
+</form>

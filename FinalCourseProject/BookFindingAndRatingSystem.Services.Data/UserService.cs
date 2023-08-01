@@ -29,6 +29,21 @@ namespace BookFindingAndRatingSystem.Services.Data
 
         }
 
+        public async Task AddOrEditReadingChallengeAsync(string? userId, ProfileViewModel model)
+        {
+            var user = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+
+            if (user != null)
+            {
+                user.ReadingChallenge = model.ReadingChalenge;
+                await dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Problem occured in saving the info about you!");
+            }
+        }
+
         public Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
         {
             var info = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
@@ -42,7 +57,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     PhoneNumber = info.PhoneNumber,
                     UserName = info.UserName,
                     About = info.About,
-                    BooksToRead = info.BooksToRead                   
+                    ReadingChalenge = info.ReadingChallenge                   
                 };
 
                 return Task.FromResult(model);

@@ -43,6 +43,21 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return RedirectToAction(nameof(Profile));
         }
+        [HttpGet]
+        public async Task<IActionResult> ReadingChallange(Guid id)
+        {
+            var user = await this.userService.GetInfoByIdAsync(id.ToString());
+
+            return View(user);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ReadingChallange(ProfileViewModel model)
+        {
+            var userId = this.GetUserId();
+            await this.userService.AddOrEditReadingChallengeAsync(userId, model);
+
+            return RedirectToAction(nameof(Profile));
+        }
         // Change username where you check if it used already
     }
 }

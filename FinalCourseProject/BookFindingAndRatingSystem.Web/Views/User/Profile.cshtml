@@ -1,6 +1,10 @@
 ﻿@using BookFindingAndRatingSystem.ViewModels
 @model ProfileViewModel
-
+@{
+    int readBooks = Model.ReadBooks?.Count() ?? 0;
+    int readingChalenge = Model.ReadingChalenge ?? 0;
+    double percentCompleted = (double)(readBooks % readingChalenge * 10 );
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,43 +37,29 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="profile">
-                    <div class="row justify-content-center">
-                        <div class="col-md-4">
-                            <div class="profile-stat">
-                                <div class="profile-stat-label">Books Read</div>
-                                <div class="profile-stat-value">@Model.BooksToRead</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="profile">                  
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <h5>Books Want to Read:</h5>
-                            @if (Model.BooksWantToRead.Count != 0)
-                            {
-                                <ul class="list-group">
-                                    @foreach (var book in Model.BooksWantToRead)
-                                    {
-                                        <li class="list-group-item">@book</li>
-                                    }
-                                </ul>
-                            }
-                            else
-                            {
-                                <h6>There are no books yet!</h6>
-                            }
+                              <a class="btn btn-outline-primary" asp-controller="Book" asp-action="Mine">See them</a>
                         </div>
                     </div>
                     <div class="row mt-4 reading-challenge-form">
                         <div class="col-md-12">
                             <h5>Reading Challenge</h5>
-                            <form>
-                                <div class="form-group">
-                                    <label for="reading-challenge">How many books do you want to read this year?</label>
-                                    <input type="number" class="form-control" id="reading-challenge" placeholder="Enter a number">
-                                </div>
-                                <button type="submit" class="btn btn-success">Set Reading Challenge</button>
-                            </form>
+                            <h6>How many books you want to read:</h6>
+                            @if (Model.ReadingChalenge==0)
+                            {
+                               <a class="btn btn-outline-success" asp-controller="User" asp-action="ReadingChallange" asp-route-id="@Model.Id">Set challenge</a>
+                            }
+                            else
+                            {
+                                <h6>@Model.ReadingChalenge</H6>
+                                  <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: @percentCompleted%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="@Model.ReadingChalenge">@percentCompleted%</div>
+                                  </div>
+                                <a class="btn btn-outline-success" asp-controller="User" asp-action="ReadingChallange" asp-route-id="@Model.Id">Change challenge</a>
+                            }                       
                         </div>
                     </div>
                 </div>

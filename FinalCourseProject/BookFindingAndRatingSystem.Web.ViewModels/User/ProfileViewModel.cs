@@ -8,6 +8,7 @@ namespace BookFindingAndRatingSystem.ViewModels
         public ProfileViewModel()
         {
             this.BooksWantToRead = new HashSet<AllBookViewModel>();
+            this.ReadBooks = new HashSet<AllBookViewModel>();
         }
         public Guid Id { get; set; }
         [Required]
@@ -21,6 +22,8 @@ namespace BookFindingAndRatingSystem.ViewModels
 
         public ICollection<AllBookViewModel> BooksWantToRead { get; set; }
 
-        public int? BooksToRead { get; set; }
+        public int? ReadingChalenge { get; set; }
+
+        public ICollection<AllBookViewModel> ReadBooks { get; set; }
     }
 }
