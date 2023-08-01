@@ -37,12 +37,21 @@
                         </li>
                         @if (this.User.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="PopularBooks">Popular Books</a>
+                            <li class="nav-item dropdown">
+                                <div class="dropdown">
+                                     <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">Books</button>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="All">All Books</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="PopularBooks">Popular Books</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="All">All Books</a>
-                            </li>
+
+
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="Mine">My Books</a>
                             </li>
