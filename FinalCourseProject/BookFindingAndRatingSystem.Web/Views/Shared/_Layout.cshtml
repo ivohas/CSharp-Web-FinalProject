@@ -39,7 +39,7 @@
                         {
                             <li class="nav-item dropdown">
                                 <div class="dropdown">
-                                     <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">Books</button>
+                                    <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">Books</button>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
                                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="All">All Books</a>
@@ -59,12 +59,22 @@
                                 <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="Search">Search</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Autor" asp-action="All">All Author</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Author" asp-action="All">All Author</a>
                             </li>
                             if (true)
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="Add">Add Book</a>
+                                <li class="nav-item dropdown">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">Add</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Add">Add Book</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Add">Add Author</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             }
                         }

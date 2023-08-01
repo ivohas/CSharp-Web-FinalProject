@@ -7,10 +7,10 @@ using System.Globalization;
 
 namespace BookFindingAndRatingSystem.Services.Data
 {
-    public class AutorService : IAutorService
+    public class AuthorService : IAuthorService
     {
         private readonly BooksDbContext dbContext;
-        public AutorService(BooksDbContext dbContext)
+        public AuthorService(BooksDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

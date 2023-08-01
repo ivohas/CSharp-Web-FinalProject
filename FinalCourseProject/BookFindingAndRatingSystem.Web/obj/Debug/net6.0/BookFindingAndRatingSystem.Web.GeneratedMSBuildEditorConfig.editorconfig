@@ -19,12 +19,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Autor/All.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcQWxsLmNzaHRtbA==
+[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Author/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Autor/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRGV0YWlscy5jc2h0bWw=
+[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Author/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Author/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Book/Add.cshtml]

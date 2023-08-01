@@ -3,7 +3,7 @@ using BookFindingAndRatingSystem.Web.ViewModels.Book;
 
 namespace BookFindingAndRatingSystem.Services.Data.Interfaces
 {
-    public interface IAutorService
+    public interface IAuthorService
     {
         Task<IEnumerable<AllAutorViewModel>> GetAllAutorsAsync();
 

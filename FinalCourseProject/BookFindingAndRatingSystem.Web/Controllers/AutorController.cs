@@ -1,4 +1,5 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
+using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.ViewModels.Autor;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [Authorize]
-    public class AutorController : Controller
+    public class AuthorController : Controller
     {
-        private readonly IAutorService autorService;
-        public AutorController(IAutorService autorService)
+        private readonly IAuthorService autorService;
+        public AuthorController(IAuthorService autorService)
         {
             this.autorService = autorService;
         }
@@ -41,6 +42,12 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
 
             return View(author);
+        }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            var model = new AuthorViewModel();
+            return View(model);
         }
     }
 }
