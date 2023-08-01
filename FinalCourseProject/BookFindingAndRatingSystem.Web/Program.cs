@@ -2,6 +2,7 @@ using BookFindingAndRatingSystem.Data.Models;
 using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.Infrastucture.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookFindingAndRatingSystem.Web
@@ -38,7 +39,11 @@ namespace BookFindingAndRatingSystem.Web
 
             builder.Services.AddApllicationServices(typeof(IBookService));
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddMvcOptions(options => {
+                    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                
+                });
 
             WebApplication app = builder.Build();
 

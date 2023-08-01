@@ -43,5 +43,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return RedirectToAction(nameof(Profile));
         }
+        // Change username where you check if it used already
     }
 }

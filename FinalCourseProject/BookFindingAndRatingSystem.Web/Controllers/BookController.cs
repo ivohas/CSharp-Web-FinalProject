@@ -236,7 +236,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(model);
         }
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Add(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
