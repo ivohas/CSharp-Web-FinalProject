@@ -1,4 +1,6 @@
-﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
+﻿using BookFindingAndRatingSystem.Data.Models;
+using BookFindingAndRatingSystem.Services.Data.Interfaces;
+using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.Autor;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
@@ -13,6 +15,19 @@ namespace BookFindingAndRatingSystem.Services.Data
         public AuthorService(BooksDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task CreateNewAuthorAsync(AuthorViewModel model)
+        {
+            var author = new Autor
+            {
+                LastName = model.LastName,
+                FirstName = model.FirstName,
+                BirthDate = model.BirthDate,
+                ImageUrl = model.ImageUrl
+            };
+            dbContext.Autors.AddRange(author);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<AllAutorViewModel>> GetAllAutorsAsync()

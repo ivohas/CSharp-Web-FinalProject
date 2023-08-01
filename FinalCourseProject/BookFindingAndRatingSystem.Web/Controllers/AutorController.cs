@@ -9,10 +9,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
     [Authorize]
     public class AuthorController : Controller
     {
-        private readonly IAuthorService autorService;
+        private readonly IAuthorService authorService;
         public AuthorController(IAuthorService autorService)
         {
-            this.autorService = autorService;
+            this.authorService = autorService;
         }
         [HttpGet]
         public async Task<IActionResult> All()
@@ -20,7 +20,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             IEnumerable<AllAutorViewModel> allAuthors;
             try
             {
-                allAuthors = await autorService.GetAllAutorsAsync();
+                allAuthors = await authorService.GetAllAutorsAsync();
             }
             catch (Exception)
             {
@@ -34,7 +34,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             AllAutorViewModel? author;
             try
             {
-                author = await this.autorService.GetAutorByIdAsync(id);
+                author = await this.authorService.GetAutorByIdAsync(id);
             }
             catch (Exception)
             {
@@ -48,6 +48,26 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             var model = new AuthorViewModel();
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Add(AuthorViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("Model", "Invalid data");
+                return this.View(model);
+            }
+            try
+            {
+                await this.authorService.CreateNewAuthorAsync(model);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Couldn't save the new book");
+            }
+
+
+            return RedirectToAction(nameof(All));
         }
     }
 }
