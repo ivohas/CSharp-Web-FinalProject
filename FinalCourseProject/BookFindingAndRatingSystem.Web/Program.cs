@@ -4,6 +4,7 @@ using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.Infrastucture.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookFindingAndRatingSystem.Web
 {

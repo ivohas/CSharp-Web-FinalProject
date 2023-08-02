@@ -17,7 +17,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.6")
+                .HasAnnotation("ProductVersion", "6.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -237,7 +237,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2402882f-a5bd-43a8-b679-a3cb241511ae"),
+                            Id = new Guid("a0447f9e-e957-42ed-9865-591b58439070"),
                             AutorId = 6,
                             CategoryId = 8,
                             Description = "A classic novel by Harper Lee",
@@ -250,7 +250,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c819c66c-8db5-4b3f-96bb-797e8480336f"),
+                            Id = new Guid("67bf5119-1aad-4418-baa9-771b55755779"),
                             AutorId = 1,
                             CategoryId = 8,
                             Description = "A dystopian novel by George Orwell",
@@ -263,7 +263,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("94106601-a1c3-4360-88b5-30a6b6dc2f81"),
+                            Id = new Guid("ead58d89-5e77-4fc1-8c27-7a427c03d944"),
                             AutorId = 2,
                             CategoryId = 8,
                             Description = "A coming-of-age novel by J.D. Salinger",
@@ -276,7 +276,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("189b8299-f6ca-4bc9-830d-eb5d79c14fc4"),
+                            Id = new Guid("9dd77bf3-94db-46dc-b316-0edfc8ca1102"),
                             AutorId = 3,
                             CategoryId = 8,
                             Description = "A novel by F. Scott Fitzgerald",
@@ -289,7 +289,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7f92dec3-2687-40ea-aa1a-76888cfeba76"),
+                            Id = new Guid("0a93aa03-ba1e-48ea-889a-d70713fe70e7"),
                             AutorId = 4,
                             CategoryId = 5,
                             Description = "A fantasy novel by J.R.R. Tolkien",
@@ -302,7 +302,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("534c586d-febf-4eeb-ad14-d9364679e709"),
+                            Id = new Guid("a95b0c95-5adc-4501-80d8-0ea01a8918d0"),
                             AutorId = 5,
                             CategoryId = 5,
                             Description = "The first book in the Harry Potter series by J.K. Rowling",
