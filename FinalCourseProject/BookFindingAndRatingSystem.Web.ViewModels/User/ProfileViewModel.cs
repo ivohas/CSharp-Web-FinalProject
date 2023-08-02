@@ -25,5 +25,7 @@ namespace BookFindingAndRatingSystem.ViewModels
         public int? ReadingChalenge { get; set; }
 
         public ICollection<AllBookViewModel> ReadBooks { get; set; }
+        [Url(ErrorMessage = "Enter valid url!")]
+        public string? ImageUrl { get; set; }
     }
 }

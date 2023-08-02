@@ -13,5 +13,7 @@ namespace BookFindingAndRatingSystem.Data.Models
         public string? About { get; set; }
         [Range(MinBooksToRead,MaxBookToRead)]
         public int? ReadingChallenge { get; set; }
+
+        public string? ImageUrl { get; set; }
     }
 }
