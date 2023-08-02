@@ -161,7 +161,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return RedirectToAction(nameof(Mine));
         }
-
+        [HttpGet]
         public async Task<IActionResult> Search([FromQuery] AllBookQueryModel queryModel)
         {
             AllBookFilteredAndPagedSerivceModel serviceModel;

@@ -72,9 +72,10 @@ namespace BookFindingAndRatingSystem.Services.Data
                 BookSorting.MostCopiesSold => booksQuery.OrderByDescending(b => b.SelledCopies),
                 _ => booksQuery
             };
-            //Problem
+            
             IEnumerable<AllBookViewModel> allBooks = await booksQuery
                 .Skip((queryModel.CurrentPage - 1) * queryModel.BooksPerPage)
+                .Take(queryModel.BooksPerPage)
                 .Select(b => new AllBookViewModel
                 {
                     Id = b.Id.ToString(),
@@ -83,7 +84,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     ImageUrl = b.ImageUrl,
                     Pages = b.Pages,
                     Price = b.Price
-                }).Take(queryModel.BooksPerPage)
+                })
                 .ToArrayAsync();
 
             int totalBook = booksQuery.Count();

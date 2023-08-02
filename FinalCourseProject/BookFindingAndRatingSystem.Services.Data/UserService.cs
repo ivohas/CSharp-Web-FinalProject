@@ -16,7 +16,7 @@ namespace BookFindingAndRatingSystem.Services.Data
 
         public async Task AddOrEditAboutForUserByIdAsync(string? userId, ProfileViewModel model)
         {
-            var user = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+            var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
 
             if (user != null)
             {
@@ -32,7 +32,7 @@ namespace BookFindingAndRatingSystem.Services.Data
 
         public async Task AddOrEditReadingChallengeAsync(string? userId, ProfileViewModel model)
         {
-            var user = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+            var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
 
             if (user != null)
             {
@@ -54,7 +54,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 throw new ArgumentException("There is already user with this username!");                
             }
 
-            var user =  this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+            var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
             if (user == null)
             {
                 throw new Exception("Problem occured");
@@ -64,9 +64,9 @@ namespace BookFindingAndRatingSystem.Services.Data
             await dbContext.SaveChangesAsync();
         }
 
-        public  Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
+        public  async Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
         {
-            var info = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+            var info = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
 
             if (info != null)
             {
@@ -80,7 +80,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     ReadingChalenge = info.ReadingChallenge
                 };
 
-                return Task.FromResult(model);
+                return model;
             }
             throw new ArgumentException("There isn't any user with this id");
         }
