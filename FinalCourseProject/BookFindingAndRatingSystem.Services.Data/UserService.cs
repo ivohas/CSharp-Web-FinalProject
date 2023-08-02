@@ -1,6 +1,7 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookFindingAndRatingSystem.Services.Data
 {
@@ -44,7 +45,26 @@ namespace BookFindingAndRatingSystem.Services.Data
             }
         }
 
-        public Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
+        public async Task EditUserNameAsync(string userId, ProfileViewModel model)
+        {
+            bool userNameAlreadyExist = await this.dbContext.Users.Where(u => u.UserName == model.UserName).AnyAsync();
+
+            if (userNameAlreadyExist)
+            {
+                throw new ArgumentException("There is already user with this username!");                
+            }
+
+            var user =  this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
+            if (user == null)
+            {
+                throw new Exception("Problem occured");
+            }
+            
+            user.UserName = model.UserName;
+            await dbContext.SaveChangesAsync();
+        }
+
+        public  Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
         {
             var info = this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefault();
 
@@ -57,7 +77,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     PhoneNumber = info.PhoneNumber,
                     UserName = info.UserName,
                     About = info.About,
-                    ReadingChalenge = info.ReadingChallenge                   
+                    ReadingChalenge = info.ReadingChallenge
                 };
 
                 return Task.FromResult(model);

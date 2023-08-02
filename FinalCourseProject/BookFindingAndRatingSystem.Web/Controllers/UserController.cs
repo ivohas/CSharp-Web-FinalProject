@@ -19,7 +19,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             ProfileViewModel model;
             try
             {
-               model = await this.userService.GetInfoByIdAsync(userId);
+                model = await this.userService.GetInfoByIdAsync(userId);
             }
             catch (Exception)
             {
@@ -39,7 +39,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         public async Task<IActionResult> EditAbout(ProfileViewModel model)
         {
             var userId = this.GetUserId();
-            await this.userService.AddOrEditAboutForUserByIdAsync(userId,model);
+            await this.userService.AddOrEditAboutForUserByIdAsync(userId, model);
 
             return RedirectToAction(nameof(Profile));
         }
@@ -55,6 +55,26 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             var userId = this.GetUserId();
             await this.userService.AddOrEditReadingChallengeAsync(userId, model);
+
+            return RedirectToAction(nameof(Profile));
+        }
+        [HttpGet]
+        public async Task<IActionResult> ChangeUserName(Guid id)
+        {
+            var model = await this.userService.GetInfoByIdAsync(id.ToString());
+            return this.View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeUserName(ProfileViewModel model)
+        {
+            try
+            {
+                await this.userService.EditUserNameAsync(this.GetUserId()!, model);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
             return RedirectToAction(nameof(Profile));
         }

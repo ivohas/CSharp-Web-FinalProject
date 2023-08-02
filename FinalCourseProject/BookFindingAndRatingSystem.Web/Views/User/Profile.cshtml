@@ -2,9 +2,14 @@
 @model ProfileViewModel
 @{
     ViewData["Title"] = "Profile";
+    double percentCompleted = 0;
     int readBooks = Model.ReadBooks?.Count() ?? 0;
     int readingChalenge = Model.ReadingChalenge ?? 0;
-    double percentCompleted = (double)(readBooks % readingChalenge * 10);
+    if (readBooks != 0)
+    {
+       percentCompleted = (double)(readBooks % readingChalenge * 10);
+    }
+   
 }
 <h1 class="text-center">@ViewData["Title"]</h1>
 <div class="row">

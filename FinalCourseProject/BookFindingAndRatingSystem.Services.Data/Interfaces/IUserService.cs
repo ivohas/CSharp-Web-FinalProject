@@ -7,5 +7,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task<ProfileViewModel> GetInfoByIdAsync(string? userId);
         Task AddOrEditAboutForUserByIdAsync(string? userId, ProfileViewModel model);
         Task AddOrEditReadingChallengeAsync(string? userId, ProfileViewModel model);
+        Task EditUserNameAsync(string v, ProfileViewModel model);
     }
 }
