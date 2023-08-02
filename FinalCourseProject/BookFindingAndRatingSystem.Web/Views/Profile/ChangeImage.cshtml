@@ -1,0 +1,16 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Change Profile Image";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="ChangeImage" asp-controller="Profile" method="post">
+        <div class="form-group">
+            <label for="imageUrlInput">Enter Image URL:</label>
+            <input type="text" class="form-control" id="imageUrlInput" name="imageUrl" value="@Model.ImageUrl" />
+        </div>
+        <button type="submit" class="btn btn-outline-success">Save Image</button>
+    </form>
+</div>

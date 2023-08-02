@@ -78,6 +78,26 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return RedirectToAction(nameof(MyProfile));
         }
-        // Change username where you check if it used already
+        [HttpGet]
+        public async Task<IActionResult> ChangeImage(Guid id)
+        {
+            var model = await this.userService.GetInfoByIdAsync(id.ToString());
+
+            return this.View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeImage(ProfileViewModel model)
+        {
+            try
+            {
+                await this.userService.ChangeImageUrl(this.GetUserId()!, model);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return RedirectToAction(nameof(MyProfile));
+        }
     }
 }

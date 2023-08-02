@@ -45,6 +45,21 @@ namespace BookFindingAndRatingSystem.Services.Data
             }
         }
 
+        public async Task ChangeImageUrl(string userId, ProfileViewModel model)
+        {
+            var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+                user.ImageUrl = model.ImageUrl;
+                await dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Problem occured in saving the info about you!");
+            }
+        }
+
         public async Task EditUserNameAsync(string userId, ProfileViewModel model)
         {
             bool userNameAlreadyExist = await this.dbContext.Users.Where(u => u.UserName == model.UserName).AnyAsync();
@@ -77,7 +92,8 @@ namespace BookFindingAndRatingSystem.Services.Data
                     PhoneNumber = info.PhoneNumber,
                     UserName = info.UserName,
                     About = info.About,
-                    ReadingChalenge = info.ReadingChallenge
+                    ReadingChalenge = info.ReadingChallenge,
+                    ImageUrl = info.ImageUrl
                 };
 
                 return model;
