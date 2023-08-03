@@ -1,8 +1,9 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Web.ViewModels.Publisher;
 using Library.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     public class PublisherController : BaseController
@@ -13,12 +14,14 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             this.publisherService = publisherService;
         }
         [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Add()
         {
             var model = new AddPublisherViewModel();
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Add(AddPublisherViewModel model)
         {
             if (!ModelState.IsValid)
