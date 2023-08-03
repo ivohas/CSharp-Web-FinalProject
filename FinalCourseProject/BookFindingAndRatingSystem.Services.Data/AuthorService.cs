@@ -26,7 +26,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 BirthDate = model.BirthDate,
                 ImageUrl = model.ImageUrl
             };
-            dbContext.Autors.AddRange(author);
+             dbContext.Autors.AddRange(author);
             await dbContext.SaveChangesAsync();
         }
 

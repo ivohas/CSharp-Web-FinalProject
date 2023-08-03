@@ -65,7 +65,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return BadRequest("Couldn't save the new book");
+                return BadRequest("Couldn't save the new auhtor");
             }
 
 
