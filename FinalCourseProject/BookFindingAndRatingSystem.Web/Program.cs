@@ -5,7 +5,7 @@ using BookFindingAndRatingSystem.Web.Infrastucture.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web
 {
     public class Program
@@ -36,6 +36,7 @@ namespace BookFindingAndRatingSystem.Web
                     = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
 
             })
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<BooksDbContext>();
 
             builder.Services.AddApllicationServices(typeof(IBookService));
@@ -68,6 +69,8 @@ namespace BookFindingAndRatingSystem.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.SeedAdministrator(DevelopmentAdminEmail);
 
             app.MapControllerRoute(
                 name: "default",

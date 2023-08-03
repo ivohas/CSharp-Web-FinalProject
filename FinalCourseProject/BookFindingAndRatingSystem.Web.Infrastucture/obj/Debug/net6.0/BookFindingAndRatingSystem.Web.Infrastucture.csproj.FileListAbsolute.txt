@@ -22,3 +22,8 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\obj\Debug\net6.0\refint\BookFindingAndRatingSystem.Web.Infrastucture.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.Infrastucture.pdb
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\obj\Debug\net6.0\ref\BookFindingAndRatingSystem.Web.Infrastucture.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\bin\Debug\net6.0\BookFindingAndRatingSystem.Common.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\bin\Debug\net6.0\BookFindingAndRatingSystem.Data.Models.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\bin\Debug\net6.0\BookFindingAndRatingSystem.Data.Models.pdb
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\bin\Debug\net6.0\BookFindingAndRatingSystem.Common.pdb
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web.Infrastucture\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.Infrastucture.csproj.CopyComplete
