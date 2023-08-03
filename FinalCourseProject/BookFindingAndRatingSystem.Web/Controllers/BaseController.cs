@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace Library.Controllers
 {
     [Authorize]
@@ -15,6 +15,11 @@ namespace Library.Controllers
                 id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             }
             return id;
+        }
+
+        protected bool IsAdmin()
+        {
+            return User?.IsInRole(AdminRoleName) ?? false;
         }
     }
 }

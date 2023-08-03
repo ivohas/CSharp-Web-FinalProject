@@ -3,7 +3,7 @@ using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.ViewModels.Autor;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [Authorize]
@@ -44,12 +44,14 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(author);
         }
         [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Add()
         {
             var model = new AuthorViewModel();
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Add(AuthorViewModel model)
         {
             if (!ModelState.IsValid)
@@ -70,6 +72,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return RedirectToAction(nameof(All));
         }
         [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(int id)
         {
             var model = await this.authorService.GetAuthorForEditByIdAsync(id);
@@ -77,6 +80,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(AuthorViewModel model)
         {
             if (!ModelState.IsValid)

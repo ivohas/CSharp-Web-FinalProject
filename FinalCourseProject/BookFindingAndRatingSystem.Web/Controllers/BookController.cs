@@ -5,7 +5,7 @@ using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [Authorize]
@@ -189,6 +189,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(queryModel);
         }
         [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(string id)
         {
             EditBookViewModel book;
@@ -208,6 +209,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(book);
         }
         [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(EditBookViewModel book)
         {
             if (!ModelState.IsValid)
@@ -230,12 +232,14 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             throw new NotImplementedException();
         }
         [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Add()
         {
             var model = new AddBookViewModel();
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Add(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
