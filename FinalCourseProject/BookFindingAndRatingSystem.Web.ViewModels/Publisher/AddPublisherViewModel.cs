@@ -6,7 +6,7 @@ namespace BookFindingAndRatingSystem.Web.ViewModels.Publisher
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(PublisherNameMaxLenght, MinimumLength = PublisherNameMinLenght, ErrorMessage = "The lenght should be between {0} and {1} characters!")]
+        [StringLength(PublisherNameMaxLenght, MinimumLength = PublisherNameMinLenght, ErrorMessage = "The lenght should be between {2} and {1} characters!")]
         public string Name { get; set; } = null!;
     }
 }

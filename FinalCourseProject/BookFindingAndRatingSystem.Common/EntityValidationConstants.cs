@@ -23,20 +23,23 @@
         public static class UserConst 
         {
 
-            public const int UserFirstNameMaxLenght = 15;
-            public const int UserFirstNameMinLenght = 3;
-
-            public const int UserLastNameMaxLenght = 15;
-            public const int UserLastNameMinLenght = 3;
+            public const int UserNameMaxLenght = 15;
+            public const int UserNameMinLenght = 3;
 
             public const int UserEmailMaxLength = 100;
+            public const int UserEmailMinLenght = 5;
+
             public const int UserPasswordMaxLength = 50;
+            public const int UserPasswordMinLenght = 5;
 
             public const int MaxLengthAbout = 250;
             public const int MinLengthAbout = 10;
 
             public const int MinBooksToRead = 0;
             public const int MaxBookToRead = 1000;
+
+            public const int UserAboutMaxLenght = 250;
+            public const int UserAboutMinLenght = 10;
         }
 
         public static class ReviewsConst

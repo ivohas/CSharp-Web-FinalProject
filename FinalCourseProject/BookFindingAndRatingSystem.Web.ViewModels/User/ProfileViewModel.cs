@@ -1,6 +1,6 @@
 ﻿using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using System.ComponentModel.DataAnnotations;
-
+using static BookFindingAndRatingSystem.Common.EntityValidationConstants.UserConst;
 namespace BookFindingAndRatingSystem.ViewModels
 {
     public class ProfileViewModel
@@ -12,11 +12,13 @@ namespace BookFindingAndRatingSystem.ViewModels
         }
         public Guid Id { get; set; }
         [Required]
+        [StringLength(UserNameMaxLenght, MinimumLength = UserNameMinLenght, ErrorMessage = "The username lenght should be betweem {2} and {1} characters!")]
         public string UserName { get; set; } = null!;
         [Required]
+        [StringLength(UserEmailMaxLength,MinimumLength = UserEmailMinLenght, ErrorMessage = "The email lenght should be between {2} and {1} characters!")]
         public string Email { get; set; } = null!;
         public string? PhoneNumber { get; set; }
-
+        [StringLength(UserAboutMaxLenght, MinimumLength = UserAboutMinLenght, ErrorMessage = "The about lenght should be between {2} and {1} characters!")]
         public string? About { get; set; }
       
 
