@@ -18,7 +18,7 @@
             <h3>Books:</h3>
            <a class="btn btn-primary" asp-controller="Book" asp-action="AutorsBook"
                asp-route-id="@Model.Id">Books writen by @Model.FirstName @Model.LastName</a>
-            @if (true)
+            @if (User.IsInRole(AdminRoleName))
             {
                  <a class="btn btn-warning" asp-controller="Author" asp-action="Edit"
                asp-route-id="@Model.Id">Edit</a>

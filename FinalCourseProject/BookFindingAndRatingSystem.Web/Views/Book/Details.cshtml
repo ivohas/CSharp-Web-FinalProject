@@ -20,7 +20,7 @@
             <p>Publisher: <b>@Model.Publisher</b></p>
             <p>Sold Copies: @Model.SelledCopies.ToString("#,##0")</p>
             <p>Description: @Model.Description</p>
-            @if (this.User.Identity.IsAuthenticated)
+            @if (this.User.Identity?.IsAuthenticated ?? false)
             {
                 <a href="@Url.Action("Rate","Book", new {id=Model.Id})" class="btn btn-primary">Rate it</a>
                 if (!Model.AlreadyAddedByThisUser)
@@ -32,11 +32,10 @@
                 {
                     <a class="btn btn-danger rounded-btn" asp-controller="Book" asp-action="RemoveFromMine" asp-route-id="@Model.Id">Remove</a>
                 }
-
-            }
-            @if (true)
-            {
-                <a href="@Url.Action("Edit", "Book", new { id = Model.Id })" class="btn btn-outline-warning">Edit</a>
+                @if (User.IsInRole(AdminRoleName))
+                {
+                    <a href="@Url.Action("Edit", "Book", new { id = Model.Id })" class="btn btn-outline-warning">Edit</a>
+                }
             }
         </div>
         <p></p>
