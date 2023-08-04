@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
+using BookFindingAndRatingSystem.Web.Hubs;
+
 namespace BookFindingAndRatingSystem.Web
 {
     public class Program
@@ -46,6 +48,7 @@ namespace BookFindingAndRatingSystem.Web
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
                 
                 });
+            builder.Services.AddSignalR();
 
             WebApplication app = builder.Build();
 
@@ -76,7 +79,7 @@ namespace BookFindingAndRatingSystem.Web
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
-
+            app.MapHub<ChatHub>("/chatHub");
             app.Run();
         }
     }
