@@ -32,6 +32,5 @@ document.getElementById("sendButton").addEventListener("click", function (event)
         });
 
     // Clear input fields after sending the message
-    document.getElementById("userInput").value = "";
     document.getElementById("messageInput").value = "";
 });
