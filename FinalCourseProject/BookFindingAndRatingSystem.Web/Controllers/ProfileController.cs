@@ -38,6 +38,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditAbout(ProfileViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
             var userId = this.GetUserId();
             await this.userService.AddOrEditAboutForUserByIdAsync(userId, model);
 
@@ -53,6 +57,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> ReadingChallange(ProfileViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
             var userId = this.GetUserId();
             await this.userService.AddOrEditReadingChallengeAsync(userId, model);
 
@@ -67,6 +75,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeUserName(ProfileViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
             try
             {
                 await this.userService.EditUserNameAsync(this.GetUserId()!, model);
@@ -81,6 +93,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ChangeImage(Guid id)
         {
+
             var model = await this.userService.GetInfoByIdAsync(id.ToString());
 
             return this.View(model);
@@ -88,6 +101,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeImage(ProfileViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
             try
             {
                 await this.userService.ChangeImageUrl(this.GetUserId()!, model);
