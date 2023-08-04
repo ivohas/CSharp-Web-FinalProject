@@ -6,7 +6,8 @@ namespace BookFindingAndRatingSystem.Web.Hubs
     {
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);           
+            var userName = Context.User!.Identity!.Name;
+            await Clients.All.SendAsync("ReceiveMessage", userName, message);           
         }
     }
 }
