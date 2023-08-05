@@ -18,12 +18,12 @@ namespace BookFindingAndRatingSystem.Web
 
             // Add services to the container.
             string connectionString =
-                builder.Configuration.GetConnectionString("DefaultConnection") 
+                builder.Configuration.GetConnectionString("DefaultConnection")
                 ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
             builder.Services.AddDbContext<BooksDbContext>(options =>
                 options.UseSqlServer(connectionString));
-           
+
             builder.Services.AddDefaultIdentity<AplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount
@@ -44,9 +44,10 @@ namespace BookFindingAndRatingSystem.Web
             builder.Services.AddApllicationServices(typeof(IBookService));
 
             builder.Services.AddControllersWithViews()
-                .AddMvcOptions(options => {
+                .AddMvcOptions(options =>
+                {
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
-                
+
                 });
             builder.Services.AddSignalR();
 
@@ -74,11 +75,19 @@ namespace BookFindingAndRatingSystem.Web
             app.UseAuthorization();
 
             app.SeedAdministrator(DevelopmentAdminEmail);
+            app.UseEndpoints(config =>
+            {
+                config.MapControllerRoute(
+                 name: "areas",
+                 pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}"
+               );
+                config.MapControllerRoute(
+                             name: "default",
+                             pattern: "{controller=Home}/{action=Index}/{id?}");
+                config.MapRazorPages();
+            });
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
+
             app.MapHub<ChatHub>("/chatHub");
             app.Run();
         }

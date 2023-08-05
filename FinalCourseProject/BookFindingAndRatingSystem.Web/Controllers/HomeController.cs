@@ -3,7 +3,7 @@ using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [AllowAnonymous]
@@ -18,6 +18,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            if (User.IsInRole(AdminRoleName))
+            {
+               return this.RedirectToAction("Index", "Home", new { Area = AdminAreaName});
+            }
             IEnumerable<AllBookViewModel> books;
             try
             {

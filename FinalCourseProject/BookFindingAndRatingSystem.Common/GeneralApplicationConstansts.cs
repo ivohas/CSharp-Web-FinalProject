@@ -7,6 +7,7 @@
         public const int DefaultPage = 1;
         public const int BooksPerPageConst = 3;
 
+        public const string AdminAreaName = "Admin";
         public const string AdminRoleName = "Administrator";
         public const string DevelopmentAdminEmail = "adminOfficial@gmail.com";
     }

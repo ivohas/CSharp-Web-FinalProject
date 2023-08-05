@@ -29,4 +29,8 @@
     <ProjectReference Include="..\BookFindingAndRatingSystem.Web.ViewModels\BookFindingAndRatingSystem.Web.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\ViewModels\" />
+  </ItemGroup>
+
 </Project>
