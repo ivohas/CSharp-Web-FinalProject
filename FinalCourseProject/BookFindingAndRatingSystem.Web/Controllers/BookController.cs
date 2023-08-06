@@ -230,34 +230,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         public IActionResult Rate(string id)
         {
             throw new NotImplementedException();
-        }
-        [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
-        public IActionResult Add()
-        {
-            var model = new AddBookViewModel();
-            return View(model);
-        }
-        [HttpPost]
-        [Authorize(Roles = AdminRoleName)]
-        public async Task<IActionResult> Add(AddBookViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("Model", "Invalid data");
-                return this.View(model);
-            }
-            try
-            {
-                await this.bookService.CreateNewBookAsync(model);
-            }
-            catch (Exception)
-            {
-                return BadRequest("Couldn't save the new book");
-            }
-
-
-            return RedirectToAction(nameof(All));
-        }
+        }      
     }
 }

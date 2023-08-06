@@ -1,0 +1,58 @@
+﻿@using BookFindingAndRatingSystem.ViewModels
+@model AddBookViewModel
+@{
+    ViewData["Title"] = "Add Book";
+}
+
+<div class="container mt-5">
+    <h2>Add Book</h2>
+    <hr />
+    <form asp-controller="Book" asp-action="Add" method="post">
+        <div class="form-group">
+            <label for="Title">Title:</label>
+            <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Description:</label>
+            <textarea class="form-control" id="Description" name="Description" rows="5" required>@Model.Description</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Pages">Pages:</label>
+            <input type="number" class="form-control" id="Pages" name="Pages" value="@Model.Pages" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ImageUrl">Image URL:</label>
+            <input type="url" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Price">Price:</label>
+            <input type="number" step="0.01" class="form-control" id="Price" name="Price" value="@Model.Price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="PublisherId">Publisher Id:</label>
+            <input type="number" class="form-control" id="PublisherId" name="PublisherId" value="@Model.PublisherId" required>
+        </div>
+
+        <div class="form-group">
+            <label for="AuthorId">Author Id:</label>
+            <input type="number" class="form-control" id="AuthorId" name="AuthorId" value="@Model.AuthorId" required>
+        </div>
+
+        <div class="form-group">
+            <label for="CategoryId">Category Id:</label>
+            <input type="number" class="form-control" id="CategoryId" name="CategoryId" value="@Model.CategoryId" required>
+        </div>
+
+        <div class="form-group">
+            <label for="SelledCopies">Number of Sold Copies:</label>
+            <input type="number" class="form-control" id="SelledCopies" name="SelledCopies" value="@Model.SoldCopies" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Book</button>
+    </form>
+</div>
