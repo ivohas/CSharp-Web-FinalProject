@@ -42,5 +42,33 @@ namespace BookFindingAndRatingSystem.Web.Areas.Admin.Controllers
             return RedirectToAction("All", "Author", new { area = "" });
 
         }
+        [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var model = await this.authorService.GetAuthorForEditByIdAsync(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Edit(AuthorViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
+            try
+            {
+                await this.authorService.EditAuthorAsync(model);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("The book can't be edited");
+            }
+
+            return RedirectToAction("Details", new { id = $"{model.Id}", area = ""});
+
+        }
     }
 }

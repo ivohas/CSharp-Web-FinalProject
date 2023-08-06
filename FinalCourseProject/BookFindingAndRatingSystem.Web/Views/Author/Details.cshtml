@@ -20,7 +20,7 @@
                asp-route-id="@Model.Id">Books writen by @Model.FirstName @Model.LastName</a>
             @if (User.IsInRole(AdminRoleName))
             {
-                 <a class="btn btn-warning" asp-controller="Author" asp-action="Edit"
+                 <a class="btn btn-warning" asp-area="Admin" asp-controller="Author" asp-action="Edit"
                asp-route-id="@Model.Id">Edit</a>
             }
         </div>
