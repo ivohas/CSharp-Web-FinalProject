@@ -32,7 +32,16 @@
                     }
                 </td>
                 <td><label>@user.UserName</label></td>
-                <td><label>@user.PhoneNumber</label></td>
+                <td>
+                    @if (user.PhoneNumber != null && user.PhoneNumber != string.Empty)
+                    {
+                        <label>✔</label>
+                    }
+                    else
+                    {
+                        <label class="text-center">❌</label>
+                    }
+                </td>
             </tr>
         }
     </tbody>
