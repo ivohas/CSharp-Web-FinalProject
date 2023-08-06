@@ -1,6 +1,8 @@
-﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
+﻿using BookFindingAndRatingSystem.Data.Models;
+using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.Data;
+using BookFindingAndRatingSystem.Web.ViewModels.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookFindingAndRatingSystem.Services.Data
@@ -45,6 +47,29 @@ namespace BookFindingAndRatingSystem.Services.Data
             }
         }
 
+        public async Task<IEnumerable<UserViewModel>> AllAsync()
+        {
+            IEnumerable<UserViewModel> users; 
+            try
+            {
+                 users = await this.dbContext
+                            .Users
+                            .Select(u => new UserViewModel
+                            {
+                                Email = u.Email,
+                                PhoneNumber = u.PhoneNumber,
+                                UserName = u.UserName
+
+                            }).ToArrayAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return users;
+        }
+
         public async Task ChangeImageUrl(string userId, ProfileViewModel model)
         {
             var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
@@ -66,7 +91,7 @@ namespace BookFindingAndRatingSystem.Services.Data
 
             if (userNameAlreadyExist)
             {
-                throw new ArgumentException("There is already user with this username!");                
+                throw new ArgumentException("There is already user with this username!");
             }
 
             var user = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
@@ -74,12 +99,12 @@ namespace BookFindingAndRatingSystem.Services.Data
             {
                 throw new Exception("Problem occured");
             }
-            
+
             user.UserName = model.UserName;
             await dbContext.SaveChangesAsync();
         }
 
-        public  async Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
+        public async Task<ProfileViewModel> GetInfoByIdAsync(string? userId)
         {
             var info = await this.dbContext.Users.Where(x => x.Id.ToString() == userId).FirstOrDefaultAsync();
 

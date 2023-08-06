@@ -1,4 +1,5 @@
 ﻿using BookFindingAndRatingSystem.ViewModels;
+using BookFindingAndRatingSystem.Web.ViewModels.User;
 
 namespace BookFindingAndRatingSystem.Services.Data.Interfaces
 {
@@ -9,5 +10,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task AddOrEditReadingChallengeAsync(string? userId, ProfileViewModel model);
         Task EditUserNameAsync(string v, ProfileViewModel model);
         Task ChangeImageUrl(string v, ProfileViewModel model);
+        Task<IEnumerable<UserViewModel>> AllAsync();
     }
 }
