@@ -1,5 +1,6 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.ViewModels;
+using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
@@ -40,6 +41,45 @@ namespace BookFindingAndRatingSystem.Web.Areas.Admin.Controllers
 
 
             return RedirectToAction("All", "Book", new { area = "" });
+        }
+        [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Edit(string id)
+        {
+            EditBookViewModel book;
+            try
+            {
+                book = await this.bookService.GetBookForEditByIdAsync(id);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest();
+            }
+
+            if (book == null)
+            {
+                return RedirectToAction($"Details({Guid.Parse(id)})");
+            }
+            return View(book);
+        }
+        [HttpPost]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Edit(EditBookViewModel book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data!");
+            }
+            try
+            {
+                await this.bookService.EditBookAsync(book);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("The book can't be edited");
+            }
+
+            return RedirectToAction("Details", new { id = $"{book.Id}", area = "" });
         }
     }
 }

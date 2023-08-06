@@ -188,45 +188,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return View(queryModel);
         }
-        [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
-        public async Task<IActionResult> Edit(string id)
-        {
-            EditBookViewModel book;
-            try
-            {
-                book = await this.bookService.GetBookForEditByIdAsync(id);
-            }
-            catch (Exception)
-            {
-                return this.BadRequest();
-            }
-
-            if (book == null)
-            {
-                return RedirectToAction($"Details({Guid.Parse(id)})");
-            }
-            return View(book);
-        }
-        [HttpPost]
-        [Authorize(Roles = AdminRoleName)]
-        public async Task<IActionResult> Edit(EditBookViewModel book)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Invalid data!");
-            }
-            try
-            {
-                await this.bookService.EditBookAsync(book);
-            }
-            catch (Exception)
-            {
-                return this.BadRequest("The book can't be edited");
-            }
-
-            return RedirectToAction("Details", new { id = $"{book.Id}" });
-        }
         public IActionResult Rate(string id)
         {
             throw new NotImplementedException();
