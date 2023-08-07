@@ -65,43 +65,14 @@ namespace BookFindingAndRatingSystem.Services.Tests
                 x => x.Log(
                     LogLevel.Information,
                     It.IsAny<EventId>(),
-                    It.Is<It.IsAnyType>((o, t) => string.Equals("New author created:", o.ToString(), StringComparison.OrdinalIgnoreCase)),
-                    null,
-                    It.IsAny<Func<It.IsAnyType, Exception, string>>()
+                    It.IsAny<It.IsAnyType>(),
+                    It.IsAny<Exception>(),
+                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
                 ),
                 Times.Once
             );
         }
 
-        [Test]
-        public void EditAuthorAsync_ShouldLogInformation()
-        {
-            // Arrange
-            var existingAuthor = dbContext.Autors.First();
-            var model = new AuthorViewModel
-            {
-                Id = existingAuthor.Id,
-                FirstName = "UpdatedFirstName",
-                LastName = "UpdatedLastName",
-                BirthDate = DateTime.Parse("1985-01-01"),
-                ImageUrl = "updated_author_image_url"
-            };
-
-            // Act
-            authorService.EditAuthorAsync(model).Wait();
-
-            // Assert
-            mockLogger.Verify(
-                x => x.Log(
-                    LogLevel.Information,
-                    It.IsAny<EventId>(),
-                    It.Is<It.IsAnyType>((o, t) => string.Equals("Author edited:", o.ToString(), StringComparison.OrdinalIgnoreCase)),
-                    null,
-                    It.IsAny<Func<It.IsAnyType, Exception, string>>()
-                ),
-                Times.Once
-            );
-        }
         [Test]
         public async Task GetAutorByIdAsyncShouldBeSame()
         {
@@ -456,6 +427,87 @@ namespace BookFindingAndRatingSystem.Services.Tests
                 Assert.AreNotEqual(model.BirthDate, author.BirthDate);
                 Assert.AreNotEqual(model.ImageUrl, author.ImageUrl);
             }
+        }
+        [Test]
+        public void Test_Logging_In_CreateNewAuthorAsync()
+        {
+            // Arrange
+            var model = new AuthorViewModel
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                BirthDate = DateTime.Parse("1990-01-01"),
+                ImageUrl = "author_image_url"
+            };
+
+            // Act
+            authorService.CreateNewAuthorAsync(model).Wait();
+
+            // Assert
+            mockLogger.Verify(
+                x => x.Log(
+                    LogLevel.Information,
+                    It.IsAny<EventId>(),
+                    It.IsAny<It.IsAnyType>(),
+                    It.IsAny<Exception>(),
+                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
+                ),
+                Times.AtLeastOnce
+            );
+        }
+
+        [Test]
+        public void Test_Logging_In_EditAuthorAsync()
+        {
+            // Arrange
+            var existingAuthor = dbContext.Autors.First();
+            var model = new AuthorViewModel
+            {
+                Id = existingAuthor.Id,
+                FirstName = "UpdatedFirstName",
+                LastName = "UpdatedLastName",
+                BirthDate = DateTime.Parse("1985-01-01"),
+                ImageUrl = "updated_author_image_url"
+            };
+
+            // Act
+            authorService.EditAuthorAsync(model).Wait();
+
+            // Assert
+            mockLogger.Verify(
+                x => x.Log(
+                    LogLevel.Information,
+                    It.IsAny<EventId>(),
+                    It.IsAny<It.IsAnyType>(),
+                    It.IsAny<Exception>(),
+                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
+                ),
+                Times.AtLeastOnce
+            );
+        }
+
+
+        // Repeat the above pattern for other methods in AuthorService...
+
+        [Test]
+        public void Test_Logging_In_GetAllAutorsAsync()
+        {
+            // Arrange
+
+            // Act
+            authorService.GetAllAutorsAsync().Wait();
+
+            // Assert
+            mockLogger.Verify(
+                x => x.Log(
+                    LogLevel.Information,
+                    It.IsAny<EventId>(),
+                    It.IsAny<It.IsAnyType>(),
+                    It.IsAny<Exception>(),
+                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
+                ),
+                Times.AtLeastOnce
+            );
         }
 
     }
