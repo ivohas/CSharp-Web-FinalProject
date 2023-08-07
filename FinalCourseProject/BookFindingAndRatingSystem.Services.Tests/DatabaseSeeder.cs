@@ -5,8 +5,8 @@ namespace BookFindingAndRatingSystem.Services.Tests
 {
     public class DatabaseSeeder
     {
-        internal static Autor author;
-        internal static Autor author2;
+        public static Autor author;
+        public static Autor author2;
         public static void SeedDatabase(BooksDbContext dbContext)
         {
             author = new Autor()

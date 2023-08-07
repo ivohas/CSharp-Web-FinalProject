@@ -351,3 +351,8 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\libman.json
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\staticwebassets\msbuild.BookFindingAndRatingSystem.Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\staticwebassets\msbuild.build.BookFindingAndRatingSystem.Web.props
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BookFindingAndRatingSystem.Web.props
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BookFindingAndRatingSystem.Web.props
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\staticwebassets.pack.json
