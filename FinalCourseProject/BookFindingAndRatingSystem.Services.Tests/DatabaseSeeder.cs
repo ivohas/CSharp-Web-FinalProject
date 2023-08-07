@@ -9,6 +9,7 @@ namespace BookFindingAndRatingSystem.Services.Tests
         public static Autor author2;
         public static void SeedDatabase(BooksDbContext dbContext)
         {
+            dbContext.ChangeTracker.Clear();
             author = new Autor()
             {
                 Id = 1,
