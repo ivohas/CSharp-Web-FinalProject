@@ -8,10 +8,10 @@ using System.Reflection;
 namespace BookFindingAndRatingSystem.Web.Data
 {
     public class BooksDbContext : IdentityDbContext<AplicationUser,IdentityRole<Guid>,Guid>
-    {
+    {       
         public BooksDbContext(DbContextOptions<BooksDbContext> options)
             : base(options)
-        {
+        { 
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
