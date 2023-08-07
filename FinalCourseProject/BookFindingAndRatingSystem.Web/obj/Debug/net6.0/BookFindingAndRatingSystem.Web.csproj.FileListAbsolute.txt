@@ -350,3 +350,4 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\libman.json
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css
