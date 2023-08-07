@@ -1,1 +1,1 @@
-﻿There is admin in the aplication, if you download the applicaition is good to log with the email in the generel constants, so you can be admin and accses more thing like add and edit some of the data
+﻿There is admin in the apпСlication, if you download the applicaition is good to log with the email in the generel constants, so you can be admin and accses more thing like add, edit and ect. 
