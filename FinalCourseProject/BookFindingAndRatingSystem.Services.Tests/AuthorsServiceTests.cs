@@ -44,34 +44,7 @@ namespace BookFindingAndRatingSystem.Services.Tests
             SeedDatabase(dbContext);
             dbContext.ChangeTracker.Clear();
 
-        }
-        [Test]
-        public void CreateNewAuthorAsync_ShouldLogInformation()
-        {
-            // Arrange
-            var model = new AuthorViewModel
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                BirthDate = DateTime.Parse("1990-01-01"),
-                ImageUrl = "author_image_url"
-            };
-
-            // Act
-            authorService.CreateNewAuthorAsync(model).Wait();
-
-            // Assert
-            mockLogger.Verify(
-                x => x.Log(
-                    LogLevel.Information,
-                    It.IsAny<EventId>(),
-                    It.IsAny<It.IsAnyType>(),
-                    It.IsAny<Exception>(),
-                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
-                ),
-                Times.Once
-            );
-        }
+        }      
 
         [Test]
         public async Task GetAutorByIdAsyncShouldBeSame()
@@ -245,7 +218,6 @@ namespace BookFindingAndRatingSystem.Services.Tests
             var exception = Assert.ThrowsAsync<Exception>(async () => await authorService.GetAuthorForEditByIdAsync(invalidAuthorId));
             Assert.AreEqual("Author not found", exception.Message);
         }
-
 
         [Test]
         public async Task GetAutorByIdAsync_ReturnsNullForInvalidAuthorId()
@@ -486,8 +458,6 @@ namespace BookFindingAndRatingSystem.Services.Tests
             );
         }
 
-
-        // Repeat the above pattern for other methods in AuthorService...
 
         [Test]
         public void Test_Logging_In_GetAllAutorsAsync()

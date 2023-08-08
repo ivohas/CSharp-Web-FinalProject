@@ -1,11 +1,9 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Services.Data.Models.Book;
-using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [Authorize]
