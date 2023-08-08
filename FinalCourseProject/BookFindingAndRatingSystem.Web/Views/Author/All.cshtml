@@ -1,22 +1,50 @@
-﻿@using BookFindingAndRatingSystem.Web.ViewModels.Autor
-@model IEnumerable<AllAutorViewModel>
+﻿@model IEnumerable<AllAutorViewModel>
+
 @{
-    var autors = Model;
+    ViewData["Title"] = "Authors";
 }
-@foreach (var author in autors)
-{
-    <h2>@author.FirstName @author.LastName</h2>
-    <img src="@author.ImageUrl" alt="Author Image"  width="250"  height="200"/>
-    
-    <h3>Books:</h3>
-    <ul>
-        @foreach (var book in author.Books)
+
+<style>
+    .card-img {
+        object-fit: cover;
+        height: 350px; /* Set the desired height */
+    }
+</style>
+
+<section class="container my-5">
+    @{
+        var authors = Model.ToList();
+        for (int i = 0; i < authors.Count; i += 3)
         {
-            <li>@book.Title</li>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                @for (int j = i; j < Math.Min(i + 3, authors.Count); j++)
+                {
+                    var author = authors[j];
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="@author.ImageUrl"
+                                     class="card-img img-fluid mx-auto d-block" alt="Author Image" />
+                                <a href="@Url.Action("Details", "Author", new { id = author.Id })">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">@($"{author.FirstName} {author.LastName}")</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Books:</h6>
+                                <ul class="list-unstyled">
+                                    @foreach (var book in author.Books)
+                                    {
+                                        <li>@book.Title</li>
+                                    }
+                                </ul>
+                                <a href="@Url.Action("Details", "Author", new { id = author.Id })"
+                                   class="btn btn-primary d-block mx-auto">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         }
-    </ul>
-     <form class="input-group-sm" asp-controller="Author" asp-action="Details" asp-route-id="@author.Id">
-                <input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
-     </form>
-    <hr />
-}
+    }
+</section>
