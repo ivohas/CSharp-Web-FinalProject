@@ -73,9 +73,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 _ => booksQuery
             };
             
-            IEnumerable<AllBookViewModel> allBooks = await booksQuery
-                .Skip((queryModel.CurrentPage - 1) * queryModel.BooksPerPage)
-                .Take(queryModel.BooksPerPage)
+            IEnumerable<AllBookViewModel> allBooks = await booksQuery                
                 .Select(b => new AllBookViewModel
                 {
                     Id = b.Id.ToString(),
