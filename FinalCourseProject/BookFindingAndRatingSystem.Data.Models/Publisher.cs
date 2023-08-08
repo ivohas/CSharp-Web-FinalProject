@@ -14,6 +14,8 @@ namespace BookFindingAndRatingSystem.Data.Models
         [Required]
         [MaxLength(PublisherNameMaxLenght)]
         public string Name { get; set; } = null!;
+        [Url]
+        public string? ImageUrl { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
     }

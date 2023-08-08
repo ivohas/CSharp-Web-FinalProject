@@ -237,7 +237,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4c0d9bab-e32e-42ca-826f-2635b1e672db"),
+                            Id = new Guid("dd71eaad-6cda-400d-85a6-cde4cdf558d8"),
                             AutorId = 6,
                             CategoryId = 8,
                             Description = "A classic novel by Harper Lee",
@@ -250,7 +250,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d0fd6a07-3c17-4414-a77a-68cd722a4873"),
+                            Id = new Guid("f3b90025-fa21-4379-9fb8-41ebc731eaa7"),
                             AutorId = 1,
                             CategoryId = 8,
                             Description = "A dystopian novel by George Orwell",
@@ -263,7 +263,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a2987c98-8cfc-4f43-adb6-2a36c8b1a93d"),
+                            Id = new Guid("8d128d71-1068-44c3-b8b7-2ede4f71a5e7"),
                             AutorId = 2,
                             CategoryId = 8,
                             Description = "A coming-of-age novel by J.D. Salinger",
@@ -276,7 +276,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("523625d5-7753-4402-a973-0ed9f03ec79c"),
+                            Id = new Guid("d85c8881-4ae7-4831-abb7-ac6f9c542066"),
                             AutorId = 3,
                             CategoryId = 8,
                             Description = "A novel by F. Scott Fitzgerald",
@@ -289,7 +289,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8c1d031a-1645-4b11-a719-86ff892bd631"),
+                            Id = new Guid("96863207-6e73-4b71-80c0-5ac1971111db"),
                             AutorId = 4,
                             CategoryId = 5,
                             Description = "A fantasy novel by J.R.R. Tolkien",
@@ -302,7 +302,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0b588825-9e99-466a-8bcd-610fd55b59eb"),
+                            Id = new Guid("764a0e2f-e27b-415a-a74f-16a03a37657b"),
                             AutorId = 5,
                             CategoryId = 5,
                             Description = "The first book in the Harry Potter series by J.K. Rowling",
@@ -397,6 +397,9 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

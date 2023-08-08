@@ -8,7 +8,10 @@
             <textarea class="form-control" id="Name" name="Name" rows="1" required>@Model.Name</textarea>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
-
+        <div class="form-group">
+            <label for="ImageUrl">Image URL:</label>
+            <input type="url" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" required>
+        </div>
         <button type="submit" class="btn btn-primary">Add Publisher</button>
     </form>
 </div>
