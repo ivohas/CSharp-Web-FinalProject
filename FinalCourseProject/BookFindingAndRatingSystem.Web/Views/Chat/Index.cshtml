@@ -1,39 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Chat Page";
-     var userName = Context.User!.Identity!.Name;
-} <div class="container">
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-2">User</div>
-        <div class="col-4">
-            <input type="text" id="userInput" value="@userName" disabled />
+    var userName = Context.User!.Identity!.Name;
+}
+<section style="background-color: #eee; width: 100%;">
+    <div class="container py-5">
+        <div class="row">
+            <div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" id="userInput" value="@userName" disabled class="form-control mb-3" />
+                        <input type="text" id="messageInput" class="form-control mb-3" />
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-info btn-rounded float-lg-start" id="sendButton">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Chat</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0" id="messagesList">
+                            <!-- Messages will be added dynamically here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-2">Message</div>
-        <div class="col-4">
-            <input type="text" id="messageInput" />
-        </div>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <ul id="messagesList"></ul>
-    </div>
-</div>
+</section>
+
+
 @section Scripts
-{
+    {
     <script src="~/lib/microsoft//signalr//dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
 }
