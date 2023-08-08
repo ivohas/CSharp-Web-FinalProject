@@ -38,8 +38,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                TempData[ErrorMessage] = "Couldn't get the user info. Please try again later!";
+                return RedirectToAction("Index", "Home");
             }
 
 
@@ -52,7 +52,6 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             {
                 TempData[ErrorMessage] = "You entered invalid data!";
                 return View(model);
-                //return BadRequest("Invalid data!");
             }
             var userId = this.GetUserId();
             try
@@ -62,8 +61,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                TempData[SuccessMessage] = "Couldn't edit your about due to an error!";
+                return RedirectToAction(nameof(MyProfile));
             }
 
 
@@ -72,7 +71,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ReadingChallange(Guid id)
         {
-            var user = await this.userService.GetInfoByIdAsync(id.ToString());
+            ProfileViewModel user;
+            try
+            {
+                user = await this.userService.GetInfoByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't get the your reading challege. Please try again later!";
+                return RedirectToAction(nameof(MyProfile));
+            }
+
 
             return View(user);
         }
@@ -81,17 +90,38 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid data!");
+                TempData[ErrorMessage] = "Invalid data";
+                return View(model);
             }
             var userId = this.GetUserId();
-            await this.userService.AddOrEditReadingChallengeAsync(userId, model);
+            try
+            {
+                await this.userService.AddOrEditReadingChallengeAsync(userId, model);
+                TempData[SuccessMessage] = "Successfully edited reading challenge!";
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't save your reading challenge due to an error!";
+                return View(model);
+            }
+
 
             return RedirectToAction(nameof(MyProfile));
         }
         [HttpGet]
         public async Task<IActionResult> ChangeUserName(Guid id)
         {
-            var model = await this.userService.GetInfoByIdAsync(id.ToString());
+            ProfileViewModel model;
+            try
+            {
+                model = await this.userService.GetInfoByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't get the your username. Please try again later!";
+                return RedirectToAction(nameof(MyProfile));
+            }
+
             return this.View(model);
         }
         [HttpPost]
@@ -99,15 +129,18 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid data!");
+                TempData[ErrorMessage] = "Invalid data";
+                return View(model);
             }
             try
             {
                 await this.userService.EditUserNameAsync(this.GetUserId()!, model);
+                TempData[SuccessMessage] = "Successfully changed username!";
             }
             catch (Exception)
             {
-                throw;
+                TempData[ErrorMessage] = "Couldn't save your username due to an error!";
+                return View(model);
             }
 
             return RedirectToAction(nameof(MyProfile));
@@ -115,8 +148,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ChangeImage(Guid id)
         {
+            ProfileViewModel model;
+            try
+            {
+                model = await this.userService.GetInfoByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't get the your image. Please try again later!";
+                return RedirectToAction(nameof(MyProfile));
+            }
 
-            var model = await this.userService.GetInfoByIdAsync(id.ToString());
 
             return this.View(model);
         }
@@ -125,15 +167,18 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid data!");
+                TempData[ErrorMessage] = "Invalid data";
+                return View(model);
             }
             try
             {
                 await this.userService.ChangeImageUrl(this.GetUserId()!, model);
+                TempData[SuccessMessage] = "Successfully changed image!";
             }
             catch (Exception)
             {
-                throw;
+                TempData[ErrorMessage] = "Couldn't save your username due to an error!";
+                return View(model);
             }
 
             return RedirectToAction(nameof(MyProfile));
