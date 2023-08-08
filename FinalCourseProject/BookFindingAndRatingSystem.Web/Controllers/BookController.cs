@@ -4,6 +4,7 @@ using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static BookFindingAndRatingSystem.Common.NotificationMessagesConstants;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     [Authorize]
@@ -11,11 +12,13 @@ namespace BookFindingAndRatingSystem.Web.Controllers
     {
         private readonly IBookService bookService;
         private readonly ICategoryService categoryService;
+
         public BookController(IBookService bookService, ICategoryService categoryService)
         {
             this.bookService = bookService;
             this.categoryService = categoryService;
         }
+
         [HttpGet]
         public async Task<IActionResult> All()
         {
@@ -26,7 +29,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest("The books can not be loaded, please try again later!");
+                TempData[ErrorMessage] = "The books could not be loaded. Please try again later.";
+                return RedirectToAction(nameof(Index), "Home");
             }
 
             return View(allBooks);
@@ -42,17 +46,19 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest("There is no book with this id, please try again later!");
+                TempData[ErrorMessage] = "There is no book with this ID. Please try again later.";
+                return RedirectToAction(nameof(All));
             }
 
             if (book != null)
             {
-
                 return View(book);
             }
 
+            TempData[ErrorMessage] = "Book details could not be loaded.";
             return NotFound();
         }
+
         [HttpGet]
         public async Task<IActionResult> PopularBooks()
         {
@@ -63,11 +69,13 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest("Problem ocured, try again later!");
+                TempData[ErrorMessage] = "Problem occurred while fetching popular books. Please try again later.";
+                return RedirectToAction(nameof(All));
             }
 
             return View(popularBooks);
         }
+
         [HttpGet]
         public async Task<IActionResult> AutorsBook(int id)
         {
@@ -79,7 +87,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest("Error ocurred!");
+                TempData[ErrorMessage] = "An error occurred while fetching author's books.";
+                return RedirectToAction(nameof(All));
             }
             return View(authorsBooks);
         }
@@ -93,27 +102,30 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest("No book by id");
+                TempData[ErrorMessage] = "An error occurred while marking the book as 'Want to Read'.";
+                return RedirectToAction(nameof(Details), new { id });
             }
-
 
             if (book == null)
             {
-                return NotFound();
+                TempData[ErrorMessage] = "Book not found.";
+                return RedirectToAction(nameof(Details), new { id });
             }
 
             var userId = this.GetUserId();
             try
             {
                 await this.bookService.AddBookToUserByIdAsync(userId, book);
+                TempData[SuccessMessage] = "Book added to your collection.";
             }
             catch (Exception)
             {
-                return BadRequest();
+                TempData[ErrorMessage] = "An error occurred while adding the book to your collection.";
             }
 
-            return RedirectToAction(nameof(Mine));
+            return RedirectToAction(nameof(Details), new { id });
         }
+
         [HttpGet]
         public async Task<IActionResult> Mine()
         {
@@ -125,11 +137,13 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest();
+                TempData[ErrorMessage] = "An error occurred while fetching your books.";
+                return RedirectToAction(nameof(Index), "Home");
             }
 
             return View(myBooks);
         }
+
         public async Task<IActionResult> RemoveFromMine(string id)
         {
             DetailsBookViewModel myBook;
@@ -139,11 +153,13 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest();
+                TempData[ErrorMessage] = "An error occurred while removing the book from your collection.";
+                return RedirectToAction(nameof(Mine));
             }
 
             if (myBook == null)
             {
+                TempData[ErrorMessage] = "Book not found in your collection.";
                 return RedirectToAction(nameof(Mine));
             }
 
@@ -151,14 +167,16 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             try
             {
                 await bookService.RemoveBookFromMyBooksAsync(userId, myBook);
+                TempData[SuccessMessage] = "Book removed from your collection.";
             }
             catch (Exception)
             {
-                return this.BadRequest();
+                TempData[ErrorMessage] = "An error occurred while removing the book from your collection.";
             }
 
             return RedirectToAction(nameof(Mine));
         }
+
         [HttpGet]
         public async Task<IActionResult> Search([FromQuery] AllBookQueryModel queryModel)
         {
@@ -169,9 +187,9 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest();
+                TempData[ErrorMessage] = "An error occurred while searching for books.";
+                return RedirectToAction(nameof(All));
             }
-
 
             queryModel.Books = serviceModel.Books;
             queryModel.BooksCount = serviceModel.TotalBooksCount;
@@ -181,14 +199,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             }
             catch (Exception)
             {
-                return this.BadRequest();
+                TempData[ErrorMessage] = "An error occurred while fetching categories.";
+                return RedirectToAction(nameof(All));
             }
 
             return View(queryModel);
         }
+
         public IActionResult Rate(string id)
         {
-            throw new NotImplementedException();
-        }      
+            TempData[ErrorMessage] = "Rating functionality not implemented yet.";
+            return RedirectToAction(nameof(Details), new { id });
+        }
     }
 }
