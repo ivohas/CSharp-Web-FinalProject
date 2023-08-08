@@ -125,7 +125,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 PublishersId = model.PublisherId,
                 AutorId = model.AuthorId,
                 CategoryId = model.CategoryId,
-                SelledCopies = model.SoldCopies
+                SelledCopies = model.SoldCopies ?? 0
             };
 
             this.dbContext.Books.AddRange(book);

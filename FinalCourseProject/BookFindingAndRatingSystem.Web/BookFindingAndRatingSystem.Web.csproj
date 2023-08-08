@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewModels\" />
+    <Folder Include="Views\Publisher\" />
   </ItemGroup>
 
 </Project>

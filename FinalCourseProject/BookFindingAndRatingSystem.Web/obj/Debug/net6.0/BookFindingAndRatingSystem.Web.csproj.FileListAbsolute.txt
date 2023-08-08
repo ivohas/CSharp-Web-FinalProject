@@ -144,7 +144,6 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.AssemblyInfoInputs.cache
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.AssemblyInfo.cs
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.RazorAssemblyInfo.cache
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\obj\Debug\net6.0\BookFindingAndRatingSystem.Web.RazorAssemblyInfo.cs

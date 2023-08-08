@@ -33,8 +33,8 @@ namespace BookFindingAndRatingSystem.ViewModels
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
-        [Required]
+        
         [Range(MinSoldCopies, MaxSoldCopies, ErrorMessage = "Please enter a valid number.")]
-        public int SoldCopies { get; set; }
+        public int? SoldCopies { get; set; }
     }
 }

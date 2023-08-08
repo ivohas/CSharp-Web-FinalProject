@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Areas/Admin/Views/Publisher/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHVibGlzaGVyXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Areas/Admin/Views/User/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -146,10 +150,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Profile/ReadingChallange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZWFkaW5nQ2hhbGxhbmdlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Publisher/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Desktop/Final Project/CSharp-Web-FinalProjct/FinalCourseProject/BookFindingAndRatingSystem.Web/Views/Shared/_BooksPartial.cshtml]
