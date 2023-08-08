@@ -2,7 +2,7 @@
 using BookFindingAndRatingSystem.ViewModels;
 using Library.Controllers;
 using Microsoft.AspNetCore.Mvc;
-
+using static BookFindingAndRatingSystem.Common.NotificationMessagesConstants;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     public class ProfileController : BaseController
@@ -31,7 +31,17 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> EditAbout(Guid id)
         {
-            var user = await this.userService.GetInfoByIdAsync(id.ToString());
+            ProfileViewModel user;
+            try
+            {
+                user = await this.userService.GetInfoByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
             return View(user);
         }
@@ -40,10 +50,22 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid data!");
+                TempData[ErrorMessage] = "You entered invalid data!";
+                return View(model);
+                //return BadRequest("Invalid data!");
             }
             var userId = this.GetUserId();
-            await this.userService.AddOrEditAboutForUserByIdAsync(userId, model);
+            try
+            {
+                await this.userService.AddOrEditAboutForUserByIdAsync(userId, model);
+                TempData[SuccessMessage] = "Successful edited about!";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
             return RedirectToAction(nameof(MyProfile));
         }

@@ -4,7 +4,7 @@ using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
+using static BookFindingAndRatingSystem.Common.NotificationMessagesConstants;
 namespace BookFindingAndRatingSystem.Services.Data
 {
     public class UserService : IUserService
