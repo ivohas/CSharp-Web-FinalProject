@@ -7,9 +7,9 @@
     int readingChalenge = Model.ReadingChalenge ?? 0;
     if (readBooks != 0)
     {
-       percentCompleted = (double)(readBooks % readingChalenge * 10);
+        percentCompleted = (double)(readBooks % readingChalenge * 10);
     }
-   
+
 }
 <h1 class="text-center">@ViewData["Title"]</h1>
 <div class="row">
@@ -20,11 +20,12 @@
                     @if (Model.ImageUrl != null)
                     {
                         <img src="@Model.ImageUrl" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                    }else
-                    {
-                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                     }
-                    
+                    else
+                    {
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                    }
+
                     <br>
                     <a class="btn btn-primary" asp-controller="Profile" asp-action="ChangeImage" asp-route-id="@Model.Id">Change your profile picture</a>
                 </div>
@@ -60,7 +61,7 @@
                         <p class="mb-4"><span class="text-primary font-italic me-1"></span> Progress with the challenge:</p>
                         @if (Model.ReadingChalenge == 0)
                         {
-                            <p>You haven't added challenge!</p>
+                            <p>You haven't added a challenge!</p>
                         }
                         else
                         {
@@ -74,7 +75,7 @@
             <div class="col-md-6">
                 <div class="card mb-4 mb-md-0">
                     <div class="card-body">
-                        <p class="mb-4"><span class="text-primary font-italic me-1"></span>Reading Challenge: @Model.ReadingChalenge books</p>
+                        <p class="mb-4"><span class="text-primary font-italic me-1"></span> Reading Challenge: @Model.ReadingChalenge books</p>
                         @if (Model.ReadingChalenge == 0)
                         {
                             <a class="btn btn-outline-success" asp-controller="Profile" asp-action="ReadingChallange" asp-route-id="@Model.Id">Set challenge</a>
@@ -86,13 +87,21 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="profile">
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Books in wishlist:</h5>
-                            <a class="btn btn-outline-primary" asp-controller="Book" asp-action="Mine">See them</a>
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <h5>Books in wishlist:</h5>
+                        <a class="btn btn-outline-primary" asp-controller="Book" asp-action="Mine">See them</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <p class="mb-4"><span class="text-primary font-italic me-1"></span> Books Read: @Model.BookRead books</p>
+                        <a class="btn btn-outline-success" asp-controller="Profile" asp-action="ReadingChallange" asp-route-id="@Model.Id">How many books you read</a>
                     </div>
                 </div>
             </div>

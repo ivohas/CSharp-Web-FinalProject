@@ -29,6 +29,8 @@ namespace BookFindingAndRatingSystem.Common
         }
         public static class UserConst 
         {
+            public const int MinBookRead = 0;
+            public const int MaxBookRead = 1000;
 
             public const int UserNameMaxLenght = 15;
             public const int UserNameMinLenght = 3;

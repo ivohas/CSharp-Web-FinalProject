@@ -15,5 +15,6 @@ namespace BookFindingAndRatingSystem.Data.Models
         public int? ReadingChallenge { get; set; }
 
         public string? ImageUrl { get; set; }
+        public int? BooksRead { get; set; }
     }
 }

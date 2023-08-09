@@ -7,7 +7,6 @@ namespace BookFindingAndRatingSystem.ViewModels
     {
         public ProfileViewModel()
         {
-            this.BooksWantToRead = new HashSet<AllBookViewModel>();
             this.ReadBooks = new HashSet<AllBookViewModel>();
         }
         public Guid Id { get; set; }
@@ -18,14 +17,17 @@ namespace BookFindingAndRatingSystem.ViewModels
         public string? PhoneNumber { get; set; }
         [StringLength(UserAboutMaxLenght, MinimumLength = UserAboutMinLenght, ErrorMessage = "The about lenght should be between {2} and {1} characters!")]
         public string? About { get; set; }
-      
-
-        public ICollection<AllBookViewModel> BooksWantToRead { get; set; }
-
+              
         public int? ReadingChalenge { get; set; }
 
         public ICollection<AllBookViewModel> ReadBooks { get; set; }
         [Url(ErrorMessage = "Enter valid url!")]
         public string? ImageUrl { get; set; }
+        [Range(MinBookRead,MaxBookRead)]
+        public int? BookRead { get; set; }
+
+        [Phone]
+        public string? PhoneMunber { get; set; }
+
     }
 }
