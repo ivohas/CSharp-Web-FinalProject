@@ -1,0 +1,15 @@
+﻿@model AllBookViewModel
+<div class="card col-4" style="width: 20rem;">
+    <img class="card-img-top" style="width: 18rem;" src="@Model.ImageUrl" alt="Book Image">
+    <div class="card-body">
+        <h5 class="card-title mt-1">@Model.Title</h5>
+    </div>
+
+
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-success rounded-btn" asp-controller="Book" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+        <a class="btn btn-danger rounded-btn" asp-controller="Book" asp-action="RemoveFromMine" asp-route-id="@Model.Id">Remove</a>
+    </div>
+
+
+</div>

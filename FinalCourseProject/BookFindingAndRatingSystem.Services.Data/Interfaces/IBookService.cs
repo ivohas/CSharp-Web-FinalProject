@@ -22,5 +22,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task<EditBookViewModel> GetBookForEditByIdAsync(string id);
         Task CreateNewBookAsync(AddBookViewModel model);
         Task AddRatingToBookAsync(string? userId, RatingViewModel review);
+        Task<IEnumerable<PopularBookViewModel>> GetPopularBooksAsync();
     }
 }

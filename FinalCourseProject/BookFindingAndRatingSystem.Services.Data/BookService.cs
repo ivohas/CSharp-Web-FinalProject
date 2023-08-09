@@ -279,6 +279,32 @@ namespace BookFindingAndRatingSystem.Services.Data
                 .ToArrayAsync();
         }
 
+        public async Task<IEnumerable<PopularBookViewModel>> GetPopularBooksAsync()
+        {
+            try
+            {
+                var popularBooks = await dbContext.Books
+                    .OrderByDescending(book => book.SelledCopies)
+                    .Select(book => new PopularBookViewModel
+                    {
+                        Id = book.Id.ToString(),
+                        Title = book.Title,
+                        Description = book.Description,
+                        Pages = book.Pages,
+                        ImageUrl = book.ImageUrl,
+                        Price = book.Price,
+                        SelledCopies = book.SelledCopies
+                    })
+                    .ToListAsync();
+
+                return popularBooks;
+            }
+            catch (Exception)
+            {
+                // Handle exception if necessary
+                throw;
+            }
+        }
 
         public async Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook)
         {

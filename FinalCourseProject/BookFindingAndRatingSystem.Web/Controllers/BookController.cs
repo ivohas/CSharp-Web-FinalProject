@@ -61,12 +61,15 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> PopularBooks()
+        public async Task<IActionResult> PopularBooks(int page = 1)
         {
-            IEnumerable<AllBookViewModel> popularBooks;
+            const int pageSize = 4; // Number of items per page
+
+            IEnumerable<PopularBookViewModel> popularBooks;
+
             try
             {
-                popularBooks = await this.bookService.GetBooksByNumberOfSellsAsync();
+                popularBooks = await this.bookService.GetPopularBooksAsync();
             }
             catch (Exception)
             {
@@ -74,7 +77,30 @@ namespace BookFindingAndRatingSystem.Web.Controllers
                 return RedirectToAction(nameof(All));
             }
 
-            return View(popularBooks);
+            var totalBooksCount = popularBooks.Count();
+            var maxPage = (int)Math.Ceiling((double)totalBooksCount / pageSize);
+
+            if (page < 1)
+            {
+                page = 1;
+            }
+            else if (page > maxPage)
+            {
+                page = maxPage;
+            }
+
+            var startIndex = (page - 1) * pageSize;
+            var pagedPopularBooks = popularBooks.Skip(startIndex).Take(pageSize);
+
+            var viewModel = new PopularBooksViewModel
+            {
+                CurrentPage = page,
+                PopularBooks = pagedPopularBooks,
+                TotalBooksCount = totalBooksCount,
+                BooksPerPage = pageSize
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -213,10 +239,10 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             // view with book id rating
             var model = new RatingViewModel()
             {
-                BookId = Guid.Parse(id),               
+                BookId = Guid.Parse(id),
             };
 
-          return View(model);
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Rate(string id, RatingViewModel review)
@@ -224,7 +250,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             var userId = this.GetUserId();
             review.BookId = Guid.Parse(id!);
             review.UserId = Guid.Parse(userId!);
-                       
+
 
             try
             {
@@ -236,7 +262,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
                 TempData[ErrorMessage] = "An error occurred while adding your rate!";
             }
 
-            return RedirectToAction(nameof(Details), new { id =review.BookId });
+            return RedirectToAction(nameof(Details), new { id = review.BookId });
         }
     }
 }
