@@ -3,7 +3,7 @@
     var userName = Context.User!.Identity!.Name;
 }
 <h1>@ViewData["Title"]</h1>
-<section style="background-color: #eee; width: 100%;">
+<section style="background-color: #eee; width: 100%; height:100%;">
     <div class="container py-5">
         <div class="row">
             <div>
@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
                 <h5 class="font-weight-bold mb-3 text-center text-lg-start">Chat</h5>
-                <div class="card">
+                <div class="card" style="width: 48vw; max-width: 850px;">
                     <div class="card-body">
                         <ul class="list-unstyled mb-0" id="messagesList">
                             <!-- Messages will be added dynamically here -->
