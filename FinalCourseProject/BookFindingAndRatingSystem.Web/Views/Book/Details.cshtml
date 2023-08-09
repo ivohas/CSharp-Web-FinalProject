@@ -20,13 +20,25 @@
             <p>Publisher: <b>@Model.Publisher</b></p>
             <p>Sold Copies: @Model.SelledCopies.ToString("#,##0")</p>
             <p>Description: @Model.Description</p>
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <div class="mr-2 font-weight-bold pr-2">Book Rate:&nbsp;</div>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            @Model.AverageRate
+                        </div>
+                        <div>/100</div>
+                    </div>
+                    <img src="/star-solid.svg" alt="Book Cart Illustration" class="img-fluid ml-2" style="width: 20px; height: 20px;">
+                </div>
+            </div>
             @if (this.User.Identity?.IsAuthenticated ?? false)
             {
                 <a href="@Url.Action("Rate","Book", new {id=Model.Id})" class="btn btn-primary">Rate it</a>
                 if (!Model.AlreadyAddedByThisUser)
                 {
                     <a class="btn" style="color: #fff; background-color: #c79b6d; border: 1px solid black;"
-               asp-controller="Book" asp-action="WantToRead" asp-route-id="@Model.Id">Want to read</a>
+                       asp-controller="Book" asp-action="WantToRead" asp-route-id="@Model.Id">Want to read</a>
                 }
                 else
                 {

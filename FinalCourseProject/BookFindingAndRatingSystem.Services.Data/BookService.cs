@@ -65,7 +65,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 };
 
                 this.dbContext.Ratings.Add(reviewToAdd);
-                
+
             }
             await this.dbContext.SaveChangesAsync();
         }
@@ -97,8 +97,8 @@ namespace BookFindingAndRatingSystem.Services.Data
                 BookSorting.MostCopiesSold => booksQuery.OrderByDescending(b => b.SelledCopies),
                 _ => booksQuery
             };
-            
-            IEnumerable<AllBookViewModel> allBooks = await booksQuery                
+
+            IEnumerable<AllBookViewModel> allBooks = await booksQuery
                 .Select(b => new AllBookViewModel
                 {
                     Id = b.Id.ToString(),
@@ -207,6 +207,15 @@ namespace BookFindingAndRatingSystem.Services.Data
                 .Include(b => b.Publisher)
                 .Include(b => b.Category)
                 .FirstOrDefaultAsync(b => b.Id.ToString() == bookId);
+            var ratingForBook = await this.dbContext.Ratings.Where(r => r.BookId.ToString() == bookId).Select(x => x.Rate).ToListAsync();
+            int averageRate = 0;
+            if (ratingForBook.Count() != 0)
+            {
+                averageRate = (int)Math.Round(ratingForBook.Average());
+            }
+
+
+
             if (book != null)
             {
                 return new DetailsBookViewModel
@@ -222,6 +231,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                     Publisher = book.Publisher.Name,
                     AutorId = book.AutorId,
                     SelledCopies = book.SelledCopies,
+                    AverageRate = averageRate,
                     AlreadyAddedByThisUser = await this.dbContext.IdentityUserBooks.Where(ub => ub.UserId.ToString() == userId && ub.BookId.ToString() == bookId).AnyAsync()
                 };
             }
@@ -268,7 +278,7 @@ namespace BookFindingAndRatingSystem.Services.Data
                 }).OrderByDescending(b => b.SelledCopies)
                 .ToArrayAsync();
         }
-      
+
 
         public async Task RemoveBookFromMyBooksAsync(string? userId, DetailsBookViewModel myBook)
         {

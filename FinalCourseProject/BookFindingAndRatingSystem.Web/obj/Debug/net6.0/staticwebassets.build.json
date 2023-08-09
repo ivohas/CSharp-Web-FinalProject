@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L2FXmX1hhYRP5yEM68FJf1eMP9yysqiQ9pxDTDkOHSI=",
+  "Hash": "KKvbz08zZVNS4njQ1tgi/BUms1O9CHI1+wrCzVRpPGE=",
   "Source": "BookFindingAndRatingSystem.Web",
   "BasePath": "_content/BookFindingAndRatingSystem.Web",
   "Mode": "Default",
@@ -2157,6 +2157,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web\\wwwroot\\star-solid.svg",
+      "SourceId": "BookFindingAndRatingSystem.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web\\wwwroot\\",
+      "BasePath": "_content/BookFindingAndRatingSystem.Web",
+      "RelativePath": "star-solid.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\star-solid.svg"
     }
   ]
 }

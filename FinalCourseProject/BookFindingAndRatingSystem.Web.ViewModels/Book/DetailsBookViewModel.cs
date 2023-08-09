@@ -9,5 +9,7 @@
         public int SelledCopies { get; set; }
 
         public bool AlreadyAddedByThisUser { get; set; }
+
+        public int? AverageRate { get; set; }
     }
 }
