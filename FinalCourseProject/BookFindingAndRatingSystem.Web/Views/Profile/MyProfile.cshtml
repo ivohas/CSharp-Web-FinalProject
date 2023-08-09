@@ -3,9 +3,13 @@
 @{
     ViewData["Title"] = "Profile";
     double percentCompleted = 0;
-    int readBooks = Model.ReadBooks?.Count() ?? 0;
+    int readBooks = Model.BookRead ?? 0;
     int readingChalenge = Model.ReadingChalenge ?? 0;
-    if (readBooks != 0)
+    if (readBooks >= readingChalenge)
+    {
+        percentCompleted = 100;
+    }
+    else if (readBooks != 0)
     {
         percentCompleted = (double)(readBooks % readingChalenge * 10);
     }
@@ -101,7 +105,7 @@
                 <div class="card mb-4 mb-md-0">
                     <div class="card-body">
                         <p class="mb-4"><span class="text-primary font-italic me-1"></span> Books Read: @Model.BookRead books</p>
-                        <a class="btn btn-outline-success" asp-controller="Profile" asp-action="ReadingChallange" asp-route-id="@Model.Id">How many books you read</a>
+                        <a class="btn btn-outline-success" asp-controller="Profile" asp-action="BooksRead" asp-route-id="@Model.Id">How many books you read</a>
                     </div>
                 </div>
             </div>

@@ -11,5 +11,6 @@ namespace BookFindingAndRatingSystem.Services.Data.Interfaces
         Task EditUserNameAsync(string v, ProfileViewModel model);
         Task ChangeImageUrl(string v, ProfileViewModel model);
         Task<IEnumerable<UserViewModel>> AllAsync();
+        Task AddOrEditBooksReadAsync(string? userId, ProfileViewModel model);
     }
 }

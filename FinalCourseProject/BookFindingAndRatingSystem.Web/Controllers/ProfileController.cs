@@ -183,5 +183,45 @@ namespace BookFindingAndRatingSystem.Web.Controllers
 
             return RedirectToAction(nameof(MyProfile));
         }
+        [HttpGet]
+        public async Task<IActionResult> BooksRead(Guid id)
+        {
+            ProfileViewModel user;
+            try
+            {
+                user = await this.userService.GetInfoByIdAsync(id.ToString());
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't get how many books you read. Please try again later!";
+                return RedirectToAction(nameof(MyProfile));
+            }
+
+
+            return View(user);
+        }
+        [HttpPost]
+        public async Task<IActionResult> BooksRead(ProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData[ErrorMessage] = "Invalid data";
+                return View(model);
+            }
+            var userId = this.GetUserId();
+            try
+            {
+                await this.userService.AddOrEditBooksReadAsync(userId, model);
+                TempData[SuccessMessage] = "Successfully edited reading challenge!";
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Couldn't save your reading challenge due to an error!";
+                return View(model);
+            }
+
+
+            return RedirectToAction(nameof(MyProfile));
+        }       
     }
 }

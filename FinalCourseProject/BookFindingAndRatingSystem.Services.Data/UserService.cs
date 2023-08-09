@@ -41,6 +41,29 @@ namespace BookFindingAndRatingSystem.Services.Data
             }
         }
 
+        public async  Task AddOrEditBooksReadAsync(string? userId, ProfileViewModel model)
+        {
+            try
+            {
+                var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id.ToString() == userId);
+
+                if (user != null)
+                {
+                    user.BooksRead = model.BookRead;
+                    await _dbContext.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new Exception("Problem occurred while saving the info about you!");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while saving Reading Challenge for user.");
+                throw; // Rethrow the exception
+            }
+        }
+
         public async Task AddOrEditReadingChallengeAsync(string? userId, ProfileViewModel model)
         {
             try
@@ -154,7 +177,8 @@ namespace BookFindingAndRatingSystem.Services.Data
                         UserName = info.UserName,
                         About = info.About,
                         ReadingChalenge = info.ReadingChallenge,
-                        ImageUrl = info.ImageUrl
+                        ImageUrl = info.ImageUrl,
+                        BookRead = info.BooksRead
                     };
 
                     return model;
