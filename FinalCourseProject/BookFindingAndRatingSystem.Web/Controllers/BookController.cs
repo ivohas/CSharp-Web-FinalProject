@@ -1,6 +1,7 @@
 ﻿using BookFindingAndRatingSystem.Services.Data.Interfaces;
 using BookFindingAndRatingSystem.Services.Data.Models.Book;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
+using BookFindingAndRatingSystem.Web.ViewModels.Rating;
 using Library.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -206,10 +207,36 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             return View(queryModel);
         }
 
+        [HttpGet]
         public IActionResult Rate(string id)
         {
-            TempData[ErrorMessage] = "Rating functionality not implemented yet.";
-            return RedirectToAction(nameof(Details), new { id });
+            // view with book id rating
+            var model = new RatingViewModel()
+            {
+                BookId = Guid.Parse(id),               
+            };
+
+          return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Rate(string id, RatingViewModel review)
+        {
+            var userId = this.GetUserId();
+            review.BookId = Guid.Parse(id!);
+            review.UserId = Guid.Parse(userId!);
+                       
+
+            try
+            {
+                await this.bookService.AddRatingToBookAsync(userId, review);
+                TempData[SuccessMessage] = "You rate the book successfully!";
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "An error occurred while adding your rate!";
+            }
+
+            return RedirectToAction(nameof(Details), new { id =review.BookId });
         }
     }
 }

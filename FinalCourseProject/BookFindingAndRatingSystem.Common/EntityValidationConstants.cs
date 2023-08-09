@@ -1,7 +1,14 @@
-﻿namespace BookFindingAndRatingSystem.Common
+﻿using System.Runtime.InteropServices;
+
+namespace BookFindingAndRatingSystem.Common
 {
     public static class EntityValidationConstants
     {
+        public static class RatingConst
+        {
+            public const int MaxRating = 100;
+            public const int MinRating = 1;
+        }
         public static class BookConst
         {
             public const int BookTitleMaxLeght = 100;

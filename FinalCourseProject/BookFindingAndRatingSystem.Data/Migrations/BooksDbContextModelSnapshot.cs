@@ -237,7 +237,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dd71eaad-6cda-400d-85a6-cde4cdf558d8"),
+                            Id = new Guid("6b60a120-a051-4d37-b2e1-8a250fececf4"),
                             AutorId = 6,
                             CategoryId = 8,
                             Description = "A classic novel by Harper Lee",
@@ -250,7 +250,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f3b90025-fa21-4379-9fb8-41ebc731eaa7"),
+                            Id = new Guid("b4cacfff-0674-4118-ba1f-8c20531d146b"),
                             AutorId = 1,
                             CategoryId = 8,
                             Description = "A dystopian novel by George Orwell",
@@ -263,7 +263,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8d128d71-1068-44c3-b8b7-2ede4f71a5e7"),
+                            Id = new Guid("18935741-2a73-4504-b68f-dd9ad77422d2"),
                             AutorId = 2,
                             CategoryId = 8,
                             Description = "A coming-of-age novel by J.D. Salinger",
@@ -276,7 +276,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d85c8881-4ae7-4831-abb7-ac6f9c542066"),
+                            Id = new Guid("ae967881-4c6f-4b19-9800-75ebf9a4d018"),
                             AutorId = 3,
                             CategoryId = 8,
                             Description = "A novel by F. Scott Fitzgerald",
@@ -289,7 +289,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("96863207-6e73-4b71-80c0-5ac1971111db"),
+                            Id = new Guid("ac597c69-c467-47e7-92a7-0fd66e3241d6"),
                             AutorId = 4,
                             CategoryId = 5,
                             Description = "A fantasy novel by J.R.R. Tolkien",
@@ -302,7 +302,7 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("764a0e2f-e27b-415a-a74f-16a03a37657b"),
+                            Id = new Guid("d429c414-0ef2-469f-ae68-9f29b2356e39"),
                             AutorId = 5,
                             CategoryId = 5,
                             Description = "The first book in the Harry Potter series by J.K. Rowling",
@@ -446,6 +446,32 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                             Id = 7,
                             Name = "Pearson Education"
                         });
+                });
+
+            modelBuilder.Entity("BookFindingAndRatingSystem.Data.Models.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -614,6 +640,25 @@ namespace BookFindingAndRatingSystem.Data.Migrations
                 {
                     b.HasOne("BookFindingAndRatingSystem.Data.Models.Book", "Book")
                         .WithMany("UsersBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookFindingAndRatingSystem.Data.Models.AplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BookFindingAndRatingSystem.Data.Models.Rating", b =>
+                {
+                    b.HasOne("BookFindingAndRatingSystem.Data.Models.Book", "Book")
+                        .WithMany()
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

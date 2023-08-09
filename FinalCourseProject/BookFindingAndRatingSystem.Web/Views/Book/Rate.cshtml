@@ -1,0 +1,15 @@
+﻿@using BookFindingAndRatingSystem.Web.ViewModels.Rating;
+@model RatingViewModel
+@{
+    ViewBag.Title = "Rate Book";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="post" asp-controller="Book" asp-action="Rate">
+    <div class="form-group">
+        <label for="rate">Rate the book:</label>
+        <input type="number" class="form-control" id="rate" name="Rate" value="@Model.Rate" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -5,6 +5,7 @@ using BookFindingAndRatingSystem.ViewModels;
 using BookFindingAndRatingSystem.Web.Data;
 using BookFindingAndRatingSystem.Web.ViewModels.Book;
 using BookFindingAndRatingSystem.Web.ViewModels.Book.Enum;
+using BookFindingAndRatingSystem.Web.ViewModels.Rating;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookFindingAndRatingSystem.Services.Data
@@ -43,6 +44,30 @@ namespace BookFindingAndRatingSystem.Services.Data
 
             }
             // Already added
+        }
+
+        public async Task AddRatingToBookAsync(string? userId, RatingViewModel review)
+        {
+            var alreadyExist = await this.dbContext.Ratings.FirstOrDefaultAsync(r => r.UserId.ToString() == userId && r.BookId == review.BookId);
+
+            if (alreadyExist != null)
+            {
+                alreadyExist.Rate = review.Rate;
+                //Swap 
+            }
+            else
+            {
+                var reviewToAdd = new Rating()
+                {
+                    Rate = review.Rate,
+                    BookId = review.BookId,
+                    UserId = review.UserId
+                };
+
+                this.dbContext.Ratings.Add(reviewToAdd);
+                
+            }
+            await this.dbContext.SaveChangesAsync();
         }
 
         public async Task<AllBookFilteredAndPagedSerivceModel> AllAsync(AllBookQueryModel queryModel)

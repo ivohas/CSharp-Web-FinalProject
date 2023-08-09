@@ -22,6 +22,7 @@ namespace BookFindingAndRatingSystem.Web.Data
         public DbSet<AplicationUser> Users { get; set; }
         public DbSet<IdentityUserBook> IdentityUserBooks { get; set; }
 
+        public DbSet<Rating> Ratings { get; set; }         
         protected override void OnModelCreating(ModelBuilder builder)
         {
             Assembly configAssembly= Assembly.GetAssembly(typeof(BooksDbContext)) ??
