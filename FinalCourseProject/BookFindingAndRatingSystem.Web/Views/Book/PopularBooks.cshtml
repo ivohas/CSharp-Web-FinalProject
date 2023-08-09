@@ -15,13 +15,13 @@
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : "")"
            asp-controller="Book"
            asp-action="PopularBooks"
-           asp-route-page="@(Model.CurrentPage - 1)"> &lt;&lt; </a>
+           asp-route-page="@(Model.CurrentPage - 1)"> &lt;- </a>
     </div>
 
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
         <a class="btn btn-primary @(Model.CurrentPage >= Math.Ceiling((double)Model.TotalBooksCount / Model.BooksPerPage) ? "disabled" : "")"
            asp-controller="Book"
            asp-action="PopularBooks"
-           asp-route-page="@(Model.CurrentPage + 1)"> &gt;&gt; </a>
+           asp-route-page="@(Model.CurrentPage + 1)"> -&gt; </a>
     </div>
 </div>
