@@ -1,23 +1,11 @@
 {
   "Version": 1,
-  "Hash": "hmDa1eu/+N77IuKcryVblTpCmrLgxlHxzaq9yvAm8GY=",
+  "Hash": "KKvbz08zZVNS4njQ1tgi/BUms1O9CHI1+wrCzVRpPGE=",
   "Source": "BookFindingAndRatingSystem.Web",
   "BasePath": "_content/BookFindingAndRatingSystem.Web",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj",
-      "Version": 2,
-      "Source": "BookFindingAndRatingSystem.Web.Api.React",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
       "Name": "BookFindingAndRatingSystem.Web\\wwwroot",

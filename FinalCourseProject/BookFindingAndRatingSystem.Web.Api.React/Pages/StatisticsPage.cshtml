@@ -1,0 +1,53 @@
+﻿@page
+@model StatisticsViewModel
+@{
+    ViewData["Title"] = "Statistics Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div id="statistics-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script>
+     
+
+        const Statistics = () => {
+            const [statistics, setStatistics] = React.useState(null);
+
+            React.useEffect(() => {
+                fetch('/api/statistics', {
+                    headers: {
+                        Authorization: `Bearer ${authToken}`
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        setStatistics(data);
+                    })
+                    .catch(error => console.error('Error fetching statistics', error));
+            }, []);
+
+            if (statistics === null) {
+                return <div>Loading...</div>;
+            }
+
+            return (
+                <div className= "statistics-container" >
+                <h2>Statistics < /h2>
+                < div className = "statistics-block" >
+                    <p>Number of Books: { statistics.numberOfBooks } </p>
+            {/* ... Other statistics */ }
+            </div>
+                < /div>
+                    );
+                };
+
+        ReactDOM.render(<Statistics />, document.getElementById('statistics-container'));
+    </script>
+</body>
+</html>

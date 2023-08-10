@@ -1,8 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages(); // Add this line for Razor Pages support
 
 var app = builder.Build();
 
@@ -17,11 +17,15 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages(); // Add this line to enable Razor Pages routing
+});
 
 app.Run();

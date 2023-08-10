@@ -29,8 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{405C0CCA-E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookFindingAndRatingSystem.Services.Tests", "BookFindingAndRatingSystem.Services.Tests\BookFindingAndRatingSystem.Services.Tests.csproj", "{68C80481-FA84-4120-8AF2-848259EB1C7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookFindingAndRatingSystem.Web.Api.React", "BookFindingAndRatingSystem.Web.Api.React\BookFindingAndRatingSystem.Web.Api.React.csproj", "{61FC21F5-895F-4836-8806-E3471CAE06E3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,10 +71,6 @@ Global
 		{68C80481-FA84-4120-8AF2-848259EB1C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68C80481-FA84-4120-8AF2-848259EB1C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68C80481-FA84-4120-8AF2-848259EB1C7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61FC21F5-895F-4836-8806-E3471CAE06E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61FC21F5-895F-4836-8806-E3471CAE06E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61FC21F5-895F-4836-8806-E3471CAE06E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61FC21F5-895F-4836-8806-E3471CAE06E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,7 +84,6 @@ Global
 		{ABDEC12A-6012-4EA6-BE7B-DA317E3D4A47} = {C4B7AE05-036B-4213-BC52-0D159148ED02}
 		{76681059-009C-458B-AB85-54FF25BD4CD9} = {E9530AFC-C687-42BD-8A4E-CC6CED458B57}
 		{68C80481-FA84-4120-8AF2-848259EB1C7F} = {405C0CCA-E7D6-4B3B-ADA7-90F4696E69EF}
-		{61FC21F5-895F-4836-8806-E3471CAE06E3} = {C4B7AE05-036B-4213-BC52-0D159148ED02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFF0D3DD-AA88-4AE2-8DFA-23977187C968}

@@ -1,8 +1,0 @@
-{
-"SpaProxyServer": {
-"ServerUrl": "https://localhost:44446",
-"LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\ClientApp\\",
-"MaxTimeoutInSeconds": "120"
-}
-}

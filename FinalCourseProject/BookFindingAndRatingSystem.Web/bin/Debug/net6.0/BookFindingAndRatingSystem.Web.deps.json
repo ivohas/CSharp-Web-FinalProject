@@ -14,7 +14,6 @@
           "BookFindingAndRatingSystem.Services.Data": "1.0.0",
           "BookFindingAndRatingSystem.Services.Data.Models": "1.0.0",
           "BookFindingAndRatingSystem.Services.Tests": "1.0.0",
-          "BookFindingAndRatingSystem.Web.Api.React": "1.0.0",
           "BookFindingAndRatingSystem.Web.Infrastucture": "1.0.0",
           "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.6",
@@ -699,14 +698,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52608"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.SpaProxy/6.0.19": {
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.SpaProxy.dll": {
-            "assemblyVersion": "6.0.19.0",
-            "fileVersion": "6.0.1923.31806"
           }
         }
       },
@@ -2540,17 +2531,6 @@
           "BookFindingAndRatingSystem.Services.Tests.dll": {}
         }
       },
-      "BookFindingAndRatingSystem.Web.Api.React/1.0.0": {
-        "dependencies": {
-          "BookFindingAndRatingSystem.Common": "1.0.0",
-          "BookFindingAndRatingSystem.Data": "1.0.0",
-          "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0",
-          "Microsoft.AspNetCore.SpaProxy": "6.0.19"
-        },
-        "runtime": {
-          "BookFindingAndRatingSystem.Web.Api.React.dll": {}
-        }
-      },
       "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
         "dependencies": {
           "BookFindingAndRatingSystem.Data.Models": "1.0.0",
@@ -3033,13 +3013,6 @@
       "sha512": "sha512-yCtBr1GSGzJrrp1NJUb4ltwFYMKHw/tJLnIDvg9g/FnkGIEzmE19tbCQqXARIJv5kdtBgsoVIdGLL+zmjxvM/A==",
       "path": "microsoft.aspnetcore.razor.language/6.0.0",
       "hashPath": "microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.SpaProxy/6.0.19": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-uEBCt1EjHMLpowJnAnZ5MVJ7S2gQdNwV7SPhJx95Gxim42nxM9xdTpAAf0ukn/+Um420JzlHJRGfJW7Fy2z2tw==",
-      "path": "microsoft.aspnetcore.spaproxy/6.0.19",
-      "hashPath": "microsoft.aspnetcore.spaproxy.6.0.19.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
       "type": "package",
@@ -3970,11 +3943,6 @@
       "sha512": ""
     },
     "BookFindingAndRatingSystem.Services.Tests/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "BookFindingAndRatingSystem.Web.Api.React/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

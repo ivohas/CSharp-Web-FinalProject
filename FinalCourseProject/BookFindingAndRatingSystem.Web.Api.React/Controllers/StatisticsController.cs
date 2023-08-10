@@ -15,7 +15,7 @@ public class StatisticsController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<StatisticsViewModel> GetStatistics()
+    public IActionResult StatisticsPage()
     {
         var statistics = new StatisticsViewModel
         {
@@ -24,6 +24,6 @@ public class StatisticsController : ControllerBase
             NumberOfUsers = _dbContext.Users.Count()
         };
 
-        return Ok(statistics);
+        return RedirectToPage("/StatisticsPage",statistics);  // Assuming "StatisticsPage" is the name of the view
     }
 }

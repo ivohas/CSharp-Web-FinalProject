@@ -1,11 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
-import './Statistics.css';
-function Statistics() {
-    const [statistics, setStatistics] = useState({
-        numberOfBooks: 0,
-        numberOfAuthors: 0,
-        numberOfUsers: 0
-    });
+
+export const Statistics = () => {
+    const [statistics, setStatistics] = useState(null);
 
     useEffect(() => {
         fetch('/api/statistics', {
@@ -19,9 +15,15 @@ function Statistics() {
                 }
                 return response.json();
             })
-            .then(data => setStatistics(data))
+            .then(data => {
+                setStatistics(data); // Set the fetched statistics data
+            })
             .catch(error => console.error('Error fetching statistics', error));
     }, []);
+
+    if (statistics === null) {
+        return <div>Loading...</div>; // Display a loading message while fetching
+    }
 
     return (
         <div className="statistics-container">
@@ -40,6 +42,4 @@ function Statistics() {
             </div>
         </div>
     );
-}
-
-export default Statistics;
+};
