@@ -412,5 +412,6 @@ namespace BookFindingAndRatingSystem.Services.Data
                 throw; // Rethrow the exception
             }
         }
+
     }
 }
