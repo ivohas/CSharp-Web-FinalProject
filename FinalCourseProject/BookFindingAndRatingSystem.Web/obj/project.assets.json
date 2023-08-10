@@ -819,6 +819,21 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
         }
       },
+      "Microsoft.AspNetCore.SpaProxy/6.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.SpaProxy.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SpaProxy.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ],
+        "build": {
+          "build/_._": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
         "type": "package",
         "compile": {
@@ -3622,6 +3637,25 @@
           "bin/placeholder/BookFindingAndRatingSystem.Services.Tests.dll": {}
         }
       },
+      "BookFindingAndRatingSystem.Web.Api.React/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BookFindingAndRatingSystem.Common": "1.0.0",
+          "BookFindingAndRatingSystem.Data": "1.0.0",
+          "BookFindingAndRatingSystem.Web.ViewModels": "1.0.0",
+          "Microsoft.AspNetCore.SpaProxy": "6.0.19"
+        },
+        "compile": {
+          "bin/placeholder/BookFindingAndRatingSystem.Web.Api.React.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookFindingAndRatingSystem.Web.Api.React.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4775,6 +4809,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll",
         "microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.razor.language.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SpaProxy/6.0.19": {
+      "sha512": "uEBCt1EjHMLpowJnAnZ5MVJ7S2gQdNwV7SPhJx95Gxim42nxM9xdTpAAf0ukn/+Um420JzlHJRGfJW7Fy2z2tw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.spaproxy/6.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "build/Microsoft.AspNetCore.SpaProxy.targets",
+        "lib/net6.0/Microsoft.AspNetCore.SpaProxy.dll",
+        "microsoft.aspnetcore.spaproxy.6.0.19.nupkg.sha512",
+        "microsoft.aspnetcore.spaproxy.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
@@ -10090,6 +10139,11 @@
       "path": "../BookFindingAndRatingSystem.Services.Tests/BookFindingAndRatingSystem.Services.Tests.csproj",
       "msbuildProject": "../BookFindingAndRatingSystem.Services.Tests/BookFindingAndRatingSystem.Services.Tests.csproj"
     },
+    "BookFindingAndRatingSystem.Web.Api.React/1.0.0": {
+      "type": "project",
+      "path": "../BookFindingAndRatingSystem.Web.Api.React/BookFindingAndRatingSystem.Web.Api.React.csproj",
+      "msbuildProject": "../BookFindingAndRatingSystem.Web.Api.React/BookFindingAndRatingSystem.Web.Api.React.csproj"
+    },
     "BookFindingAndRatingSystem.Web.Infrastucture/1.0.0": {
       "type": "project",
       "path": "../BookFindingAndRatingSystem.Web.Infrastucture/BookFindingAndRatingSystem.Web.Infrastucture.csproj",
@@ -10109,6 +10163,7 @@
       "BookFindingAndRatingSystem.Services.Data >= 1.0.0",
       "BookFindingAndRatingSystem.Services.Data.Models >= 1.0.0",
       "BookFindingAndRatingSystem.Services.Tests >= 1.0.0",
+      "BookFindingAndRatingSystem.Web.Api.React >= 1.0.0",
       "BookFindingAndRatingSystem.Web.Infrastucture >= 1.0.0",
       "BookFindingAndRatingSystem.Web.ViewModels >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.6",
@@ -10164,6 +10219,9 @@
             },
             "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Tests\\BookFindingAndRatingSystem.Services.Tests.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Tests\\BookFindingAndRatingSystem.Services.Tests.csproj"
+            },
+            "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj"
             },
             "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj"

@@ -437,6 +437,81 @@
         }
       }
     },
+    "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj",
+        "projectName": "BookFindingAndRatingSystem.Web.Api.React",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Common\\BookFindingAndRatingSystem.Common.csproj"
+              },
+              "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Data\\BookFindingAndRatingSystem.Data.csproj"
+              },
+              "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.ViewModels\\BookFindingAndRatingSystem.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.ViewModels\\BookFindingAndRatingSystem.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.SpaProxy": {
+              "target": "Package",
+              "version": "[6.0.19, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -614,6 +689,9 @@
               },
               "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Tests\\BookFindingAndRatingSystem.Services.Tests.csproj": {
                 "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Services.Tests\\BookFindingAndRatingSystem.Services.Tests.csproj"
+              },
+              "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Api.React\\BookFindingAndRatingSystem.Web.Api.React.csproj"
               },
               "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj": {
                 "projectPath": "C:\\Users\\ASUS\\Desktop\\Final Project\\CSharp-Web-FinalProjct\\FinalCourseProject\\BookFindingAndRatingSystem.Web.Infrastucture\\BookFindingAndRatingSystem.Web.Infrastucture.csproj"

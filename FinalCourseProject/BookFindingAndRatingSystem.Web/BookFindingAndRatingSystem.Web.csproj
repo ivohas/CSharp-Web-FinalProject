@@ -26,6 +26,7 @@
     <ProjectReference Include="..\BookFindingAndRatingSystem.Services.Data.Models\BookFindingAndRatingSystem.Services.Data.Models.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Services.Data\BookFindingAndRatingSystem.Services.Data.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Services.Tests\BookFindingAndRatingSystem.Services.Tests.csproj" />
+    <ProjectReference Include="..\BookFindingAndRatingSystem.Web.Api.React\BookFindingAndRatingSystem.Web.Api.React.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Web.Infrastucture\BookFindingAndRatingSystem.Web.Infrastucture.csproj" />
     <ProjectReference Include="..\BookFindingAndRatingSystem.Web.ViewModels\BookFindingAndRatingSystem.Web.ViewModels.csproj" />
   </ItemGroup>
