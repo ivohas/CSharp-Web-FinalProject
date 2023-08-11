@@ -447,3 +447,7 @@ C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\Bo
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Tests.dll
 C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\BookFindingAndRatingSystem.Services.Tests.pdb
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\AngleSharp.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\AngleSharp.Css.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\HtmlSanitizer.dll
+C:\Users\ASUS\Desktop\Final Project\CSharp-Web-FinalProjct\FinalCourseProject\BookFindingAndRatingSystem.Web\bin\Debug\net6.0\System.Collections.Immutable.dll

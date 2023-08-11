@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using static BookFindingAndRatingSystem.Common.GeneralApplicationConstansts;
 using BookFindingAndRatingSystem.Web.Hubs;
+using Ganss.Xss;
 
 namespace BookFindingAndRatingSystem.Web
 {
@@ -42,6 +43,7 @@ namespace BookFindingAndRatingSystem.Web
                 .AddEntityFrameworkStores<BooksDbContext>();
 
             builder.Services.AddApllicationServices(typeof(IBookService));
+            
 
             builder.Services.AddControllersWithViews()
                 .AddMvcOptions(options =>
@@ -50,6 +52,8 @@ namespace BookFindingAndRatingSystem.Web
 
                 });
             builder.Services.AddSignalR();
+
+            builder.Services.AddSingleton<IHtmlSanitizer, HtmlSanitizer>();
 
             WebApplication app = builder.Build();
 

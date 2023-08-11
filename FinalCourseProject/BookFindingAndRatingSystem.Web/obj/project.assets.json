@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AngleSharp/0.17.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Text.Encoding.CodePages": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AngleSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AngleSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AngleSharp.Css/0.17.0": {
+        "type": "package",
+        "dependencies": {
+          "AngleSharp": "[0.17.0, 0.18.0)"
+        },
+        "compile": {
+          "lib/net6.0/AngleSharp.Css.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AngleSharp.Css.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "AutoMapper/12.0.1": {
         "type": "package",
         "dependencies": {
@@ -51,6 +84,24 @@
         "type": "package",
         "build": {
           "build/netstandard1.0/_._": {}
+        }
+      },
+      "HtmlSanitizer/8.0.692": {
+        "type": "package",
+        "dependencies": {
+          "AngleSharp": "[0.17.1]",
+          "AngleSharp.Css": "[0.17.0]",
+          "System.Collections.Immutable": "7.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/HtmlSanitizer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/HtmlSanitizer.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Humanizer/2.14.1": {
@@ -2617,6 +2668,15 @@
           "build/netcoreapp2.1/_._": {}
         }
       },
+      "System.Buffers/4.5.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2630,7 +2690,7 @@
           }
         }
       },
-      "System.Collections.Immutable/6.0.0": {
+      "System.Collections.Immutable/7.0.0": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -2646,7 +2706,7 @@
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3655,6 +3715,47 @@
     }
   },
   "libraries": {
+    "AngleSharp/0.17.1": {
+      "sha512": "5MPI4bbixlwxb0W/smOMeIR+QlxMy5/5jD+WnIAw4pBC+7AhLPe5bS3cLgQMJyvd6q0A48sG+uYOt/ep406GLA==",
+      "type": "package",
+      "path": "anglesharp/0.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "anglesharp.0.17.1.nupkg.sha512",
+        "anglesharp.nuspec",
+        "lib/net461/AngleSharp.dll",
+        "lib/net461/AngleSharp.xml",
+        "lib/net472/AngleSharp.dll",
+        "lib/net472/AngleSharp.xml",
+        "lib/netstandard2.0/AngleSharp.dll",
+        "lib/netstandard2.0/AngleSharp.xml",
+        "logo.png"
+      ]
+    },
+    "AngleSharp.Css/0.17.0": {
+      "sha512": "bg0AcugmX6BFEi/DHG61QrwRU8iuiX4H8LZehdIzYdqOM/dgb3BsCTzNIcc1XADn4+xfQEdVwJYTSwUxroL4vg==",
+      "type": "package",
+      "path": "anglesharp.css/0.17.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "anglesharp.css.0.17.0.nupkg.sha512",
+        "anglesharp.css.nuspec",
+        "lib/net461/AngleSharp.Css.dll",
+        "lib/net461/AngleSharp.Css.xml",
+        "lib/net472/AngleSharp.Css.dll",
+        "lib/net472/AngleSharp.Css.xml",
+        "lib/net6.0/AngleSharp.Css.dll",
+        "lib/net6.0/AngleSharp.Css.xml",
+        "lib/net7.0/AngleSharp.Css.dll",
+        "lib/net7.0/AngleSharp.Css.xml",
+        "lib/netstandard2.0/AngleSharp.Css.dll",
+        "lib/netstandard2.0/AngleSharp.Css.xml",
+        "logo.png"
+      ]
+    },
     "AutoMapper/12.0.1": {
       "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
       "type": "package",
@@ -3757,6 +3858,22 @@
         "coverlet-icon.png",
         "coverlet.collector.3.1.2.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "HtmlSanitizer/8.0.692": {
+      "sha512": "dZrQfEET9PPgBVHsGT5EWa9Uv2hvrSonYQPNBSbURgEL/fKEokT/740abbSadUxNq3icWZVbqLGGzuTFEsNDNA==",
+      "type": "package",
+      "path": "htmlsanitizer/8.0.692",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "htmlsanitizer.8.0.692.nupkg.sha512",
+        "htmlsanitizer.nuspec",
+        "lib/net461/HtmlSanitizer.dll",
+        "lib/net461/HtmlSanitizer.xml",
+        "lib/netstandard2.0/HtmlSanitizer.dll",
+        "lib/netstandard2.0/HtmlSanitizer.xml"
       ]
     },
     "Humanizer/2.14.1": {
@@ -7747,6 +7864,37 @@
         "nunit3testadapter.nuspec"
       ]
     },
+    "System.Buffers/4.5.1": {
+      "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "type": "package",
+      "path": "system.buffers/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Buffers.dll",
+        "lib/net461/System.Buffers.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Buffers.dll",
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net45/System.Buffers.dll",
+        "ref/net45/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "ref/uap10.0.16299/_._",
+        "system.buffers.4.5.1.nupkg.sha512",
+        "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -7815,25 +7963,30 @@
         "system.collections.nuspec"
       ]
     },
-    "System.Collections.Immutable/6.0.0": {
-      "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+    "System.Collections.Immutable/7.0.0": {
+      "sha512": "dQPcs0U1IKnBdRDBkrCTi1FoajSTBzLcVTpjO4MBCMC7f4pDOIPzgBoX8JjG7X6uZRJ8EBxsi8+DR1JuwjnzOQ==",
       "type": "package",
-      "path": "system.collections.immutable/6.0.0",
+      "path": "system.collections.immutable/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
+        "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Collections.Immutable.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Collections.Immutable.dll",
-        "lib/net461/System.Collections.Immutable.xml",
+        "lib/net462/System.Collections.Immutable.dll",
+        "lib/net462/System.Collections.Immutable.xml",
         "lib/net6.0/System.Collections.Immutable.dll",
         "lib/net6.0/System.Collections.Immutable.xml",
+        "lib/net7.0/System.Collections.Immutable.dll",
+        "lib/net7.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "system.collections.immutable.6.0.0.nupkg.sha512",
+        "system.collections.immutable.7.0.0.nupkg.sha512",
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -10111,6 +10264,7 @@
       "BookFindingAndRatingSystem.Services.Tests >= 1.0.0",
       "BookFindingAndRatingSystem.Web.Infrastucture >= 1.0.0",
       "BookFindingAndRatingSystem.Web.ViewModels >= 1.0.0",
+      "HtmlSanitizer >= 8.0.692",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.6",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.20",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.20",
@@ -10184,6 +10338,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "HtmlSanitizer": {
+            "target": "Package",
+            "version": "[8.0.692, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.6, )"

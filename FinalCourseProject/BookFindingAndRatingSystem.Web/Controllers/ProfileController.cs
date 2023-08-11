@@ -3,14 +3,18 @@ using BookFindingAndRatingSystem.ViewModels;
 using Library.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using static BookFindingAndRatingSystem.Common.NotificationMessagesConstants;
+using Ganss.Xss;
 namespace BookFindingAndRatingSystem.Web.Controllers
 {
     public class ProfileController : BaseController
     {
         private readonly IUserService userService;
-        public ProfileController(IUserService userService)
+        private readonly IHtmlSanitizer _htmlSanitizer;
+
+        public ProfileController(IUserService userService, IHtmlSanitizer htmlSanitizer)
         {
             this.userService = userService;
+            this._htmlSanitizer = htmlSanitizer;
         }
         public async Task<IActionResult> MyProfile()
         {
@@ -34,7 +38,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
             ProfileViewModel user;
             try
             {
-                user = await this.userService.GetInfoByIdAsync(id.ToString());
+                user = await this.userService.GetInfoByIdAsync(id.ToString());               
             }
             catch (Exception)
             {
@@ -48,6 +52,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditAbout(ProfileViewModel model)
         {
+            var userAbout = _htmlSanitizer.Sanitize(model.About!);
+            model.About = userAbout;
             if (!ModelState.IsValid)
             {
                 TempData[ErrorMessage] = "You entered invalid data!";
@@ -88,6 +94,7 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> ReadingChallange(ProfileViewModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 TempData[ErrorMessage] = "Invalid data";
@@ -127,6 +134,8 @@ namespace BookFindingAndRatingSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeUserName(ProfileViewModel model)
         {
+            var userAbout = _htmlSanitizer.Sanitize(model.UserName!);
+            model.UserName = userAbout;
             if (!ModelState.IsValid)
             {
                 TempData[ErrorMessage] = "Invalid data";
